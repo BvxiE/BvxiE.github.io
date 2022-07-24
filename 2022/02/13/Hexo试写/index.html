@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="PHP笔记 13 14 15 16, 一个Hexo博客">
+    <meta name="keywords" content="Hexo试写, 一个Hexo博客">
     <meta name="description" content="
-回顾由于我之前更的文章为CSDN上的富本编译器（我的问题，那时候就没想这往GitHub上更）年前PHP的04到12，文字还能复制粘贴，图片不能，太多了，改了一两篇，实在是不想改了，但又要确定PHP笔记整体的完整性，链接奉上（改了下csdn">
+复制了一份欢迎稿。我们理解您需要更便捷更高效的工具记录思想，整理笔记、知识，并将其中承载的价值传播给他人，Cmd Markdown 是我们给出的答案 —— 我们为记录思想和分享知识提供更专业的工具。 您可以使用 Cmd Markdown：">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>PHP笔记 13 14 15 16 | 一个Hexo博客</title>
+    <title>Hexo试写 | 一个Hexo博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">PHP笔记 13 14 15 16</h1>
+                    <h1 class="description center-align post-title">Hexo试写</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2022-02-18
+                    2022-02-13
                 </div>
                 
 
@@ -465,26 +465,87 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <hr>
-<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>由于我之前更的文章为CSDN上的富本编译器（我的问题，那时候就没想这往GitHub上更）<br>年前PHP的04到12，文字还能复制粘贴，图片不能，太多了，改了一两篇，实在是不想改了，但又要确定PHP笔记整体的完整性，链接奉上（改了下csdn的名，让这两个博客相关）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_64702918/article/details/121733401?spm=1001.2014.3001.5501">php笔记 04</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_64702918/article/details/121735021?spm=1001.2014.3001.5501">php笔记 05</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_64702918/article/details/121777762?spm=1001.2014.3001.5501">php笔记 06</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_64702918/article/details/122223101?spm=1001.2014.3001.5501">php笔记 07</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_64702918/article/details/122245419?spm=1001.2014.3001.5501">php笔记 08 09 10 11 12</a></p>
-<p>流程控制：对PHP程序执行过程进行控制！<strong>共4种手段！</strong></p>
-<h1 id="顺序执行（从上往下执行）"><a href="#顺序执行（从上往下执行）" class="headerlink" title="顺序执行（从上往下执行）"></a>顺序执行（从上往下执行）</h1><h1 id="分支执行"><a href="#分支执行" class="headerlink" title="分支执行"></a>分支执行</h1><p>根据条件是否满足来选择执行某些代码，主要通过<strong>if，switch</strong>两种语句实现。</p>
-<h2 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h2><p><strong>单项条件（if）</strong>，<strong>双项条件（if…else）</strong>，<strong>多向条件（if…elseif<br> …else）</strong>，均和C语言差不多！<br>注意：elseif直接写，之间没空格，可写多个。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="variable">$a</span>&gt;=<span class="variable">$pass</span>)&#123;</span><br><span class="line">	 <span class="keyword">echo</span><span class="string">&#x27;通过&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">其中&#123;&#125;之中为语句块。	我们<span class="keyword">if</span>语句的表达式中所控制的代码，最好用&#123;&#125;括起来，哪怕是一条语句也用！能减少错误的发生！  </span><br></pre></td></tr></table></figure>
-<h2 id="switch-语句"><a href="#switch-语句" class="headerlink" title="switch 语句"></a>switch 语句</h2><p><strong>switch…case…default(case可写多个)</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>（<span class="variable">$a</span>）&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">		<span class="keyword">echo</span><span class="string">&#x27;输出1&lt;br /&gt;&#x27;</span>;<span class="keyword">break</span>；</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">		<span class="keyword">echo</span><span class="string">&#x27;输出2&lt;br /&gt;&#x27;</span>;<span class="keyword">break</span>；</span><br><span class="line">	<span class="keyword">default</span>：</span><br><span class="line">		<span class="keyword">echo</span><span class="string">&#x27;输出末&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>复制了一份欢迎稿。<br>我们理解您需要更便捷更高效的工具记录思想，整理笔记、知识，并将其中承载的价值传播给他人，<strong>Cmd Markdown</strong> 是我们给出的答案 —— 我们为记录思想和分享知识提供更专业的工具。 您可以使用 Cmd Markdown：</p>
 <blockquote>
-<p>注意：<br>（1）表达式switch后面的值最好是整形，或者是字符串；<br>（2）每个case语句后面都加上break;<br>（3）如果某个case语句后面没有接语句块，那么就说明，这个语句块的内容是同下的（即输出的内容为下一个case的语句块），前提是这个case连break也没有；<br>（4）case后面的语句块不需要{}括起来；</p>
+<ul>
+<li>整理知识，学习笔记</li>
+<li>发布日记，杂文，所见所想</li>
+<li>撰写发布技术文稿（代码支持）</li>
+<li>撰写发布学术论文（LaTeX 公式支持）</li>
+</ul>
 </blockquote>
-<h1 id="循环执行（像C）"><a href="#循环执行（像C）" class="headerlink" title="循环执行（像C）"></a>循环执行（像C）</h1><h2 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="variable">$i</span>&lt;<span class="number">10</span>)&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$i</span>++;</span><br><span class="line">&#125;	</span><br></pre></td></tr></table></figure>
-<p>先判断！在执行！</p>
-<h2 id="do…while语句"><a href="#do…while语句" class="headerlink" title="do…while语句"></a>do…while语句</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$i</span>++;</span><br><span class="line">&#125;<span class="keyword">while</span>(<span class="variable">$i</span>&lt;<span class="number">10</span>);	</span><br></pre></td></tr></table></figure>
-<p>先执行！后判断！<br>注意：与while语句区别是，do while语句至少会执行一次。</p>
-<h2 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(表达式a;表达式b;表达式c)&#123;</span><br><span class="line">	各种语句</span><br><span class="line">&#125;</span><br><span class="line">表达式a:会放一些初始化的语句，<span class="variable">$i</span>=<span class="number">0</span>,有也可以放多个表达式，中间用，隔开；</span><br><span class="line">表达式b:会放一些用来判断<span class="literal">true</span>或者<span class="literal">false</span>的表达式，有也可以放多个表达式，中间用，隔开；</span><br><span class="line">表达式c:会放一些初始化变量进行自增的语句，<span class="variable">$i</span>=<span class="number">0</span>,有也可以放多个表达式，中间用，隔开；</span><br></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span>=<span class="number">0</span>;<span class="variable">$i</span>&lt;<span class="number">10</span>;<span class="variable">$i</span>++)&#123;</span><br><span class="line">	<span class="keyword">echo</span><span class="string">&quot;执行到第<span class="subst">&#123;$i&#125;</span>遍&lt;br /&gt;&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="特殊的流程控制语句"><a href="#特殊的流程控制语句" class="headerlink" title="特殊的流程控制语句"></a>特殊的流程控制语句</h1><h2 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h2><p>默认用于终止当前中断语句（多用于终止循环语句）<br>在for循环嵌套中，可以在<strong>break 1（也可以是其他数），数字是几，就是跳出第几层循环语句。</strong><br><img src="https://img-blog.csdnimg.cn/3c4cdd35fa564096804e9ab5a3d94ba3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_11,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h2 id="continue语句"><a href="#continue语句" class="headerlink" title="continue语句"></a>continue语句</h2><p>跳出本次循环（例：<code>$i=3</code>），并不是结束整个循环语句<br><img src="https://img-blog.csdnimg.cn/9134f94d8ca84f70bb779990a88ee17b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_11,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>以图示为例，只是跳出<code>$i=5</code>时的这一次循环，其他正常输出。</p>
-<h2 id="exit-语句"><a href="#exit-语句" class="headerlink" title="exit()语句"></a>exit()语句</h2><p>结束当前整个PHP程序的执行，<br><img src="https://img-blog.csdnimg.cn/cca68b3459b34483aaf3ef146f53f3f4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_12,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>如图可在<code>exit()</code>括号添加文字…作为页面提示！</p>
-<h2 id="die-语句"><a href="#die-语句" class="headerlink" title="die()语句"></a>die()语句</h2><p>die()语句与 exit()语句用法和含义相同！</p>
+<p><img src="https://www.zybuluo.com/static/img/logo.png" alt="cmd-markdown-logo"></p>
+<p>除了您现在看到的这个 Cmd Markdown 在线版本，您还可以前往以下网址下载：</p>
+<h3 id="Windows-Mac-Linux-全平台客户端"><a href="#Windows-Mac-Linux-全平台客户端" class="headerlink" title="Windows/Mac/Linux 全平台客户端"></a><a target="_blank" rel="noopener" href="https://www.zybuluo.com/cmd/">Windows/Mac/Linux 全平台客户端</a></h3><blockquote>
+<p>请保留此份 Cmd Markdown 的欢迎稿兼使用说明，如需撰写新稿件，点击顶部工具栏右侧的 <i class="icon-file"></i> <strong>新文稿</strong> 或者使用快捷键 <code>Ctrl+Alt+N</code>。</p>
+</blockquote>
+<hr>
+<h2 id="什么是-Markdown"><a href="#什么是-Markdown" class="headerlink" title="什么是 Markdown"></a>什么是 Markdown</h2><p>Markdown 是一种方便记忆、书写的纯文本标记语言，用户可以使用这些标记符号以最小的输入代价生成极富表现力的文档：譬如您正在阅读的这份文档。它使用简单的符号标记不同的标题，分割不同的段落，<strong>粗体</strong> 或者 <em>斜体</em> 某些文字，更棒的是，它还可以</p>
+<h3 id="1-制作一份待办事宜-Todo-列表"><a href="#1-制作一份待办事宜-Todo-列表" class="headerlink" title="1. 制作一份待办事宜 Todo 列表"></a>1. 制作一份待办事宜 <a target="_blank" rel="noopener" href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#13-%E5%BE%85%E5%8A%9E%E4%BA%8B%E5%AE%9C-todo-%E5%88%97%E8%A1%A8">Todo 列表</a></h3><ul>
+<li><input disabled="" type="checkbox"> 支持以 PDF 格式导出文稿</li>
+<li><input disabled="" type="checkbox"> 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率</li>
+<li><input checked="" disabled="" type="checkbox"> 新增 Todo 列表功能</li>
+<li><input checked="" disabled="" type="checkbox"> 修复 LaTex 公式渲染问题</li>
+<li><input checked="" disabled="" type="checkbox"> 新增 LaTex 公式编号功能</li>
+</ul>
+<h3 id="2-书写一个质能守恒公式-LaTeX"><a href="#2-书写一个质能守恒公式-LaTeX" class="headerlink" title="2. 书写一个质能守恒公式[^LaTeX]"></a>2. 书写一个质能守恒公式[^LaTeX]</h3><p>$$E=mc^2$$</p>
+<h3 id="3-高亮一段代码-code"><a href="#3-高亮一段代码-code" class="headerlink" title="3. 高亮一段代码[^code]"></a>3. 高亮一段代码[^code]</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># A comment</span></span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;hello world&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-高效绘制-流程图"><a href="#4-高效绘制-流程图" class="headerlink" title="4. 高效绘制 流程图"></a>4. 高效绘制 <a target="_blank" rel="noopener" href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#7-%E6%B5%81%E7%A8%8B%E5%9B%BE">流程图</a></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: Start</span><br><span class="line">op=&gt;operation: Your Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">e=&gt;end</span><br><span class="line"> </span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+<h3 id="5-高效绘制-序列图"><a href="#5-高效绘制-序列图" class="headerlink" title="5. 高效绘制 序列图"></a>5. 高效绘制 <a target="_blank" rel="noopener" href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#8-%E5%BA%8F%E5%88%97%E5%9B%BE">序列图</a></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Alice-&gt;Bob: Hello Bob, how are you?</span><br><span class="line">Note right of Bob: Bob thinks</span><br><span class="line">Bob--&gt;Alice: I am good thanks!</span><br></pre></td></tr></table></figure>
+<h3 id="6-高效绘制-甘特图"><a href="#6-高效绘制-甘特图" class="headerlink" title="6. 高效绘制 甘特图"></a>6. 高效绘制 <a target="_blank" rel="noopener" href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#9-%E7%94%98%E7%89%B9%E5%9B%BE">甘特图</a></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">title 项目开发流程</span><br><span class="line">section 项目确定</span><br><span class="line">    需求分析       :a1, 2016-06-22, 3d</span><br><span class="line">    可行性报告     :after a1, 5d</span><br><span class="line">    概念验证       : 5d</span><br><span class="line">section 项目实施</span><br><span class="line">    概要设计      :2016-07-05  , 5d</span><br><span class="line">    详细设计      :2016-07-08, 10d</span><br><span class="line">    编码          :2016-07-15, 10d</span><br><span class="line">    测试          :2016-07-22, 5d</span><br><span class="line">section 发布验收</span><br><span class="line">    发布: 2d</span><br><span class="line">    验收: 3d</span><br></pre></td></tr></table></figure>
+<h3 id="7-绘制表格"><a href="#7-绘制表格" class="headerlink" title="7. 绘制表格"></a>7. 绘制表格</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th align="right">价格</th>
+<th align="center">数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>计算机</td>
+<td align="right">$1600</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td>手机</td>
+<td align="right">$12</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td>管线</td>
+<td align="right">$1</td>
+<td align="center">234</td>
+</tr>
+<tr>
+<td></td>
+<td align="right"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="8-更详细语法说明"><a href="#8-更详细语法说明" class="headerlink" title="8. 更详细语法说明"></a>8. 更详细语法说明</h3><p>想要查看更详细的语法说明，可以参考我们准备的 [Cmd Markdown 简明语法手册][1]，进阶用户可以参考 [Cmd Markdown 高阶语法手册][2] 了解更多高级功能。</p>
+<p>总而言之，不同于其它 <em>所见即所得</em> 的编辑器：你只需使用键盘专注于书写文本内容，就可以生成印刷级的排版格式，省却在键盘和工具栏之间来回切换，调整内容和格式的麻烦。<strong>Markdown 在流畅的书写和印刷级的阅读体验之间找到了平衡。</strong> 目前它已经成为世界上最大的技术分享网站 GitHub 和 技术问答网站 StackOverFlow 的御用书写格式。</p>
+<hr>
+<h2 id="什么是-Cmd-Markdown"><a href="#什么是-Cmd-Markdown" class="headerlink" title="什么是 Cmd Markdown"></a>什么是 Cmd Markdown</h2><p>您可以使用很多工具书写 Markdown，但是 Cmd Markdown 是这个星球上我们已知的、最好的 Markdown 工具——没有之一 ：）因为深信文字的力量，所以我们和你一样，对流畅书写，分享思想和知识，以及阅读体验有极致的追求，我们把对于这些诉求的回应整合在 Cmd Markdown，并且一次，两次，三次，乃至无数次地提升这个工具的体验，最终将它演化成一个 <strong>编辑/发布/阅读</strong> Markdown 的在线平台——您可以在任何地方，任何系统/设备上管理这里的文字。</p>
+<h3 id="1-实时同步预览"><a href="#1-实时同步预览" class="headerlink" title="1. 实时同步预览"></a>1. 实时同步预览</h3><p>我们将 Cmd Markdown 的主界面一分为二，左边为<strong>编辑区</strong>，右边为<strong>预览区</strong>，在编辑区的操作会实时地渲染到预览区方便查看最终的版面效果，并且如果你在其中一个区拖动滚动条，我们有一个巧妙的算法把另一个区的滚动条同步到等价的位置，超酷！</p>
+<h3 id="2-编辑工具栏"><a href="#2-编辑工具栏" class="headerlink" title="2. 编辑工具栏"></a>2. 编辑工具栏</h3><p>也许您还是一个 Markdown 语法的新手，在您完全熟悉它之前，我们在 <strong>编辑区</strong> 的顶部放置了一个如下图所示的工具栏，您可以使用鼠标在工具栏上调整格式，不过我们仍旧鼓励你使用键盘标记格式，提高书写的流畅度。</p>
+<p><img src="https://www.zybuluo.com/static/img/toolbar-editor.png" alt="tool-editor"></p>
+<h3 id="3-编辑模式"><a href="#3-编辑模式" class="headerlink" title="3. 编辑模式"></a>3. 编辑模式</h3><p>完全心无旁骛的方式编辑文字：点击 <strong>编辑工具栏</strong> 最右侧的拉伸按钮或者按下 <code>Ctrl + M</code>，将 Cmd Markdown 切换到独立的编辑模式，这是一个极度简洁的写作环境，所有可能会引起分心的元素都已经被挪除，超清爽！</p>
+<h3 id="4-实时的云端文稿"><a href="#4-实时的云端文稿" class="headerlink" title="4. 实时的云端文稿"></a>4. 实时的云端文稿</h3><p>为了保障数据安全，Cmd Markdown 会将您每一次击键的内容保存至云端，同时在 <strong>编辑工具栏</strong> 的最右侧提示 <code>已保存</code> 的字样。无需担心浏览器崩溃，机器掉电或者地震，海啸——在编辑的过程中随时关闭浏览器或者机器，下一次回到 Cmd Markdown 的时候继续写作。</p>
+<h3 id="5-离线模式"><a href="#5-离线模式" class="headerlink" title="5. 离线模式"></a>5. 离线模式</h3><p>在网络环境不稳定的情况下记录文字一样很安全！在您写作的时候，如果电脑突然失去网络连接，Cmd Markdown 会智能切换至离线模式，将您后续键入的文字保存在本地，直到网络恢复再将他们传送至云端，即使在网络恢复前关闭浏览器或者电脑，一样没有问题，等到下次开启 Cmd Markdown 的时候，她会提醒您将离线保存的文字传送至云端。简而言之，我们尽最大的努力保障您文字的安全。</p>
+<h3 id="6-管理工具栏"><a href="#6-管理工具栏" class="headerlink" title="6. 管理工具栏"></a>6. 管理工具栏</h3><p>为了便于管理您的文稿，在 <strong>预览区</strong> 的顶部放置了如下所示的 <strong>管理工具栏</strong>：</p>
+<p><img src="https://www.zybuluo.com/static/img/toolbar-manager.jpg" alt="tool-manager"></p>
+<p>通过管理工具栏可以：</p>
+<p><i class="icon-share"></i> 发布：将当前的文稿生成固定链接，在网络上发布，分享<br><i class="icon-file"></i> 新建：开始撰写一篇新的文稿<br><i class="icon-trash"></i> 删除：删除当前的文稿<br><i class="icon-cloud"></i> 导出：将当前的文稿转化为 Markdown 文本或者 Html 格式，并导出到本地<br><i class="icon-reorder"></i> 列表：所有新增和过往的文稿都可以在这里查看、操作<br><i class="icon-pencil"></i> 模式：切换 普通/Vim/Emacs 编辑模式</p>
+<h3 id="7-阅读工具栏"><a href="#7-阅读工具栏" class="headerlink" title="7. 阅读工具栏"></a>7. 阅读工具栏</h3><p><img src="https://www.zybuluo.com/static/img/toolbar-reader.jpg" alt="tool-manager"></p>
+<p>通过 <strong>预览区</strong> 右上角的 <strong>阅读工具栏</strong>，可以查看当前文稿的目录并增强阅读体验。</p>
+<p>工具栏上的五个图标依次为：</p>
+<p><i class="icon-list"></i> 目录：快速导航当前文稿的目录结构以跳转到感兴趣的段落<br><i class="icon-chevron-sign-left"></i> 视图：互换左边编辑区和右边预览区的位置<br><i class="icon-adjust"></i> 主题：内置了黑白两种模式的主题，试试 <strong>黑色主题</strong>，超炫！<br><i class="icon-desktop"></i> 阅读：心无旁骛的阅读模式提供超一流的阅读体验<br><i class="icon-fullscreen"></i> 全屏：简洁，简洁，再简洁，一个完全沉浸式的写作和阅读环境</p>
+<h3 id="8-阅读模式"><a href="#8-阅读模式" class="headerlink" title="8. 阅读模式"></a>8. 阅读模式</h3><p>在 <strong>阅读工具栏</strong> 点击 <i class="icon-desktop"></i> 或者按下 <code>Ctrl+Alt+M</code> 随即进入独立的阅读模式界面，我们在版面渲染上的每一个细节：字体，字号，行间距，前背景色都倾注了大量的时间，努力提升阅读的体验和品质。</p>
+<h3 id="9-标签、分类和搜索"><a href="#9-标签、分类和搜索" class="headerlink" title="9. 标签、分类和搜索"></a>9. 标签、分类和搜索</h3><p>在编辑区任意行首位置输入以下格式的文字可以标签当前文档：</p>
+<p>标签： 未分类</p>
+<p>标签以后的文稿在【文件列表】（Ctrl+Alt+F）里会按照标签分类，用户可以同时使用键盘或者鼠标浏览查看，或者在【文件列表】的搜索文本框内搜索标题关键字过滤文稿，如下图所示：</p>
+<p><img src="https://www.zybuluo.com/static/img/file-list.png" alt="file-list"></p>
+<h3 id="10-文稿发布和分享"><a href="#10-文稿发布和分享" class="headerlink" title="10. 文稿发布和分享"></a>10. 文稿发布和分享</h3><p>在您使用 Cmd Markdown 记录，创作，整理，阅读文稿的同时，我们不仅希望它是一个有力的工具，更希望您的思想和知识通过这个平台，连同优质的阅读体验，将他们分享给有相同志趣的人，进而鼓励更多的人来到这里记录分享他们的思想和知识，尝试点击 <i class="icon-share"></i> (Ctrl+Alt+P) 发布这份文档给好友吧！</p>
 
                 
             </div>
@@ -511,7 +572,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://BvxiE.github.io/2022/02/18/PHP%E7%AC%94%E8%AE%B0%2013%2014%2015%2016/">http://BvxiE.github.io/2022/02/18/PHP%E7%AC%94%E8%AE%B0%2013%2014%2015%2016/</a>
+                    <a href="http://BvxiE.github.io/2022/02/13/Hexo%E8%AF%95%E5%86%99/">http://BvxiE.github.io/2022/02/13/Hexo%E8%AF%95%E5%86%99/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -724,13 +785,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2022/02/25/PHPstudy+Vscode%E9%85%8D%E7%BD%AEphp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
+                <a href="/2022/02/18/HTML&CSS/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="PHPstudy+Vscode配置php开发环境">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="HTML&amp;CSS">
                         
-                        <span class="card-title">PHPstudy+Vscode配置php开发环境</span>
+                        <span class="card-title">HTML&amp;CSS</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -741,7 +802,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-25
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-18
                         </span>
                         <span class="publish-author">
                             
@@ -761,13 +822,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/02/18/HTML&CSS/">
+                <a href="/2022/02/13/sql-labs(1~4%E5%85%B3)/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="HTML&amp;CSS">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="sql-labs（1~4关）">
                         
-                        <span class="card-title">HTML&amp;CSS</span>
+                        <span class="card-title">sql-labs（1~4关）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -778,7 +839,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-13
                             </span>
                         <span class="publish-author">
                             
