@@ -306,55 +306,9 @@
 </header>
 
     
-<style>
-    .carousel-control {
-        width: 45px;
-        height: 45px;
-        line-height: 55px;
-        border-radius: 45px;
-        background: transparent;
-        cursor: pointer;
-        z-index: 100;
-    }
-
-    #prev-cover {
-        position: absolute;
-        top: 48%;
-        left: 8px;
-    }
-
-    #next-cover {
-        position: absolute;
-        top: 48%;
-        right: 8px;;
-    }
-
-    #prev-cover i {
-        margin-right: 3px;
-    }
-
-    #next-cover i {
-        margin-left: 3px;
-    }
-
-    .carousel-control:hover {
-        background-color: rgba(0, 0, 0, .4);
-    }
-
-    .carousel-control i {
-        color: #fff;
-        font-size: 2.4rem;
-    }
-</style>
-
-
-
-<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
-    
-
-    <div class="carousel-item  white-text bg-cover about-cover">
-        <div class="container">
-            <div class="row">
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
             <div class="title center-align">
@@ -397,159 +351,12 @@
 </script>
 
 
-
-            <div class="cover-btns">
-                <a href="#indexCard" class="waves-effect waves-light btn">
-                    <i class="fa fa-angle-double-down"></i>Start
-                </a>
-
-                
-                    <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light btn" target="_blank">
-                        <i class="fab fa-github-alt"></i>Github
-                    </a>
-                
-            </div>
-            <div class="cover-social-link">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:1337198618@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1337198618" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1337198618" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-</div>
-        </div>
     </div>
-
-    
 </div>
-
-<script>
-    $(function () {
-        let coverSlider = $('.carousel');
-
-        //用户触摸轮播自动 restartPlay 是否生效
-        let initUserPressedOrDraggedActive = false
-
-        //用户触摸轮播自动 restartPlay
-        function initUserPressedOrDragged(instance) {
-            setInterval(() => {
-                if (instance.pressed || instance.dragged) {
-                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
-                    restartPlay()
-                }
-            }, 1000)
-        }
-
-        coverSlider.carousel({
-            duration: Number('120'),
-            fullWidth: true,
-            indicators: 'true' === 'true',
-            onCycleTo() {
-                if (!initUserPressedOrDraggedActive) {
-                    // console.log('initUserPressedOrDraggedActive')
-                    initUserPressedOrDragged(this)
-                    initUserPressedOrDraggedActive = true
-                }
-            },
-        })
-
-        let carouselIntervalId;
-        
-        // Loop to call the next cover article picture.
-        let autoCarousel = function () {
-            carouselIntervalId = setInterval(function () {
-                coverSlider.carousel('next');
-            }, 5000);
-        };
-        autoCarousel();
-        
-
-        function restartPlay() {
-            
-            clearInterval(carouselIntervalId);
-            autoCarousel();
-            
-        };
-
-        
-        // prev and next cover post.
-        $('#prev-cover').click(function () {
-            coverSlider.carousel('prev');
-            restartPlay();
-        });
-        $('#next-cover').click(function () {
-            coverSlider.carousel('next');
-            restartPlay();
-        });
-        
-    });
-</script>
-
 
 
 <main class="content">
 
-    
-    <div id="indexCard" class="index-card">
-        <div class="container ">
-            <div class="card">
-                <div class="card-content">
-                    
-                        <div class="dream">
-    
-    <div class="title center-align">
-        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;我的梦想
-    </div>
-    
-    <div class="row">
-        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
-        </div>
-    </div>
-</div>
-
-                    
-
-                    
-
-                    
-
-                    
-                    <div id="recommend-sections" class="recommend">
-                        
-
-
-
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
     
 
     
@@ -561,13 +368,13 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/07/23/Buu%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019%5D/">
+                    <a href="/2022/02/18/HTML&CSS/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Buu[极客大挑战 2019]">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="HTML&amp;CSS">
                             
-                            <span class="card-title">Buu[极客大挑战 2019]</span>
+                            <span class="card-title">HTML&amp;CSS</span>
                         </div>
                     </a>
 
@@ -575,63 +382,12 @@
                         <div class="summary block-with-text">
                             
                                 
-[极客大挑战 2019]EasySQL由题目可得做题方向
-永真表达式1admin&#x27; or &#x27;1&#x27;=&#x27;1
-注意：只需要密码维持此式即可解出
-使用万能账号也需判断，和永真表达式有什么区别的话，在页面进行
+在先前学习了HTML+CSS的网页搭建，今天对与基本知识在进行回顾(感觉像没学一样，有的理解都不对！)…代码结尾奉上！出了点意外（存的丢了），将其位置补成HTML+CSS+PHP+MySQL作业，怕忘，先把题目摆着（四个方面的东西，我…也
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-23
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                BvxiE
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Web%E9%A2%98%E8%A7%A3/">
-                            <span class="chip bg-color">Web题解</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/07/22/OD%E7%AA%97%E5%8F%A3%E4%BF%AE%E6%94%B9/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="OD窗口修改">
-                            
-                            <span class="card-title">OD窗口修改</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-左上修改图示：010拖进去直接改注意修改长度保持一致，可以用空格代替！
-中间修改图示
-将文件拖入，点击图示按钮双击需要的那一个！右键要修改的部分，按如图所示在地址窗口ctrl+E,在第一个选框进行修改之后按图示修改文件名，保存即可！同理：
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-18
                             </span>
                             <span class="publish-author">
                                 
@@ -658,13 +414,13 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/06/14/PHP%E7%AC%94%E8%AE%B0%2026%2027/">
+                    <a href="/2022/02/13/sql-labs(1~4%E5%85%B3)/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="PHP笔记 26 27">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="sql-labs（1~4关）">
                             
-                            <span class="card-title">PHP笔记 26 27</span>
+                            <span class="card-title">sql-labs（1~4关）</span>
                         </div>
                     </a>
 
@@ -672,13 +428,13 @@
                         <div class="summary block-with-text">
                             
                                 
-去除空格或其他字符函数( 普通空格符，制表符，换行符，回车符，空字节符，垂直制表符)
-trim()1234&lt;?php $arr=&#x27;  abc  &#x27;;var_dump($arr);var_dump(trim($ar
+什么是sql-labs？
+SQL 注入（SQL Injection） 是发生在 Web 程序中数据库层的安全漏洞，是网站存在最多也是最简单的漏洞。 主要原因是程序对用户输入数据的合法性没有判断和处理，导致攻击者可以在 Web 应用程序中事
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-13
                             </span>
                             <span class="publish-author">
                                 
@@ -692,8 +448,8 @@ trim()1234&lt;?php $arr=&#x27;  abc  &#x27;;var_dump($arr);var_dump(trim($ar
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/PHP%E7%AC%94%E8%AE%B0/">
-                            <span class="chip bg-color">PHP笔记</span>
+                        <a href="/tags/%E9%9D%B6%E5%9C%BA%E8%AE%B0%E5%BD%95/">
+                            <span class="chip bg-color">靶场记录</span>
                         </a>
                         
                     </div>
@@ -705,13 +461,13 @@ trim()1234&lt;?php $arr=&#x27;  abc  &#x27;;var_dump($arr);var_dump(trim($ar
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/06/11/ISCC%202022/">
+                    <a href="/2022/02/13/upload-labs%EF%BC%881~3%E5%85%B3%EF%BC%89/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="ISCC 2022">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="upload-labs（1~3关）">
                             
-                            <span class="card-title">ISCC 2022</span>
+                            <span class="card-title">upload-labs（1~3关）</span>
                         </div>
                     </a>
 
@@ -719,12 +475,12 @@ trim()1234&lt;?php $arr=&#x27;  abc  &#x27;;var_dump($arr);var_dump(trim($ar
                         <div class="summary block-with-text">
                             
                                 
-web冬奥会1234567891011121314151617181920212223242526272829303132&lt;?phpshow_source(__FILE__);$Step1=False;$Step2=False;$i
+实话实说，关于这个upload-labs，我拖了好久，主要一直不理解这是个什么东西，又该上传什么样的文件，自己一直揪着不放，特别执着…看了网上许许多多的题解，对于上传的文件多为php后缀，从而做题也按php后缀走，但就目前理解来看，上传文
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-13
                             </span>
                             <span class="publish-author">
                                 
@@ -738,299 +494,8 @@ web冬奥会1234567891011121314151617181920212223242526272829303132&lt;?phpshow_
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E6%AF%94%E8%B5%9B%E5%9B%9E%E9%A1%BE/">
-                            <span class="chip bg-color">比赛回顾</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/03/25/ctf.show_VIP%E9%A2%98%E7%9B%AE%E9%99%90%E5%85%8D(%E5%85%A8)/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="VIP题目限免">
-                            
-                            <span class="card-title">VIP题目限免</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-这题目全英…英语废一个，所以我把题目全部复制过来了
-源码泄露 ‎
-
-您没有访问所请求资源的权限。它要么是受读保护的，要么不能被服务器读取。
-
- 题目提示源码…那就找源码吧！
-前台JS绕过
-提示：js前台拦截 === 无效操作
-
-手动源码查
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-25
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                BvxiE
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Web%E9%A2%98%E8%A7%A3/">
-                            <span class="chip bg-color">Web题解</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/03/20/PHP%E7%AC%94%E8%AE%B0%2022%2023%2024%2025/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="PHP笔记 22 23 24 25">
-                            
-                            <span class="card-title">PHP笔记 22 23 24 25</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-数组
-方法一变量名称【索引值】=数据；变量名称【】=数据；//不写索引值默认是所以数组，从0开始。方法二变量名称=array{       索引值=&gt;数据；       …………..}；
-
-索引,你也可以理解为目录，就相当于给里面的
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-20
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                BvxiE
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/PHP%E7%AC%94%E8%AE%B0/">
-                            <span class="chip bg-color">PHP笔记</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/03/01/PHP%E7%AC%94%E8%AE%B0%2017%2018%2019%2020%2021/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="PHP笔记 17 18 19 20 21">
-                            
-                            <span class="card-title">PHP笔记 17 18 19 20 21</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-自定义函数1234567&lt;?phpfunction text()&#123;    echo &#x27;你好!&#x27;;&#125;text();注意：function后跟自定义函数。
-末尾的text():为函数的调用，与前面
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                BvxiE
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/PHP%E7%AC%94%E8%AE%B0/">
-                            <span class="chip bg-color">PHP笔记</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/26/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E6%96%B0%E6%89%8B%E5%8C%BA%20WEB/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="攻防世界新手区 WEB">
-                            
-                            <span class="card-title">攻防世界新手区 WEB</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-攻防世界新手区 WEB，进行简单总结，运用多元的方法，达到一题多解，有的知识点还不太顺，后续进行专项解析！
-view source查看一个网页的源代码，但小宁同学发现鼠标右键好像不管用了,那就F12吧！
-或者 ···→更多工具→开发人员工
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                BvxiE
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/web%E9%A2%98%E8%A7%A3/">
-                            <span class="chip bg-color">web题解</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/18/Hexo%E8%AF%95%E5%86%99/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Hexo试写">
-                            
-                            <span class="card-title">Hexo试写</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-复制了一份欢迎稿。我们理解您需要更便捷更高效的工具记录思想，整理笔记、知识，并将其中承载的价值传播给他人，Cmd Markdown 是我们给出的答案 —— 我们为记录思想和分享知识提供更专业的工具。 您可以使用 Cmd Markdown：
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                BvxiE
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
-                            <span class="chip bg-color">基本配置</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/18/PHP%E7%AC%94%E8%AE%B0%2013%2014%2015%2016/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="PHP笔记 13 14 15 16">
-                            
-                            <span class="card-title">PHP笔记 13 14 15 16</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-回顾由于我之前更的文章为CSDN上的富本编译器（我的问题，那时候就没想这往GitHub上更）年前PHP的04到12，文字还能复制粘贴，图片不能，太多了，改了一两篇，实在是不想改了，但又要确定PHP笔记整体的完整性，链接奉上（改了下csdn
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                BvxiE
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/PHP%E7%AC%94%E8%AE%B0/">
-                            <span class="chip bg-color">PHP笔记</span>
+                        <a href="/tags/%E9%9D%B6%E5%9C%BA%E8%AE%B0%E5%BD%95/">
+                            <span class="chip bg-color">靶场记录</span>
                         </a>
                         
                     </div>
@@ -1049,18 +514,18 @@ view source查看一个网页的源代码，但小宁同学发现鼠标右键好
     <div class="row">
         <div class="col s6 m4 l4">
             
-            <a class="left btn-floating btn-large disabled">
+            <a href="/"
+               class="left btn-floating btn-large waves-effect waves-light bg-color">
                 <i class="fas fa-angle-left"></i>
             </a>
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 2</div>
+            <div class="center-align b-text-gray">2 / 2</div>
         </div>
         <div class="col s6 m4 l4">
             
-            <a href="/page/2/"
-               class="right btn-floating btn-large waves-effect waves-light bg-color">
+            <a class="right btn-floating btn-large disabled">
                 <i class="fas fa-angle-right"></i>
             </a>
             
