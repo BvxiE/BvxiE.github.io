@@ -13,9 +13,7 @@
 
  题目提示源码…那就找源码吧！
 前台JS绕过
-提示：js前台拦截 === 无效操作
-
-手动源码查">
+提示：js前台拦截 &amp;#x3D;&amp;#x3D;&amp;#x">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -485,7 +483,7 @@
 </blockquote>
 <p> 题目提示源码…那就找源码吧！<br><img src="https://img-blog.csdnimg.cn/f9b62ef6e8f5406c8d82fe2d2d5413f0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_12,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
 <h1 id="前台JS绕过"><a href="#前台JS绕过" class="headerlink" title="前台JS绕过"></a>前台JS绕过</h1><blockquote>
-<p>提示：js前台拦截 === 无效操作</p>
+<p>提示：js前台拦截 &#x3D;&#x3D;&#x3D; 无效操作</p>
 </blockquote>
 <h2 id="手动源码查看"><a href="#手动源码查看" class="headerlink" title="手动源码查看"></a>手动源码查看</h2><p>由于我本身电脑设置问题，一直就无法f12，手动打开开发人员工具，源码显示，提交正确！<br><img src="https://img-blog.csdnimg.cn/1c236219bbc04e80bee79f3e54b77530.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_14,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>咳咳…到网上找个题解看看，嗯..方法多样，就我所见的试试吧！</p>
 <h2 id="ctrl-u或在网站前面加view-source"><a href="#ctrl-u或在网站前面加view-source" class="headerlink" title="ctrl+u或在网站前面加view-source:"></a>ctrl+u或在网站前面加view-source:</h2><p><img src="https://img-blog.csdnimg.cn/7a6847d68cee47688e6eaa07041e022d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_11,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
@@ -515,7 +513,7 @@
 </blockquote>
 <p>直接url后缀加<code>/.git/</code><br><img src="https://img-blog.csdnimg.cn/ccda29cdde2b410bb7ec02ee7a851f72.png" alt="在这里插入图片描述"><br>不是很理解…到一位师傅的wp中发现了这些</p>
 <blockquote>
-<p>这里是 .git 源码泄露。<br>是由于运行git init初始化代码库的时候，会在当前目录下面产生一个.git的隐藏文件，用来记录代码的变更记录等等。在发布代码的时候， .git 这个目录没有删除，直接发布了。使用这个文件，可以用来恢复源代码。<br>访问 url/.git/ ，得到 flag 。<br>类似的还有 .hg 源码泄露，由于 hg init 的时候生成 .hg 文件。</p>
+<p>这里是 .git 源码泄露。<br>是由于运行git init初始化代码库的时候，会在当前目录下面产生一个.git的隐藏文件，用来记录代码的变更记录等等。在发布代码的时候， .git 这个目录没有删除，直接发布了。使用这个文件，可以用来恢复源代码。<br>访问 url&#x2F;.git&#x2F; ，得到 flag 。<br>类似的还有 .hg 源码泄露，由于 hg init 的时候生成 .hg 文件。</p>
 </blockquote>
 <h1 id="版本控制泄露源码2"><a href="#版本控制泄露源码2" class="headerlink" title="版本控制泄露源码2"></a>版本控制泄露源码2</h1><blockquote>
 <p>版本控制很重要，但不要部署到生产环境更重要。</p>
@@ -550,7 +548,7 @@
 <h1 id="编辑器配置不当"><a href="#编辑器配置不当" class="headerlink" title="编辑器配置不当"></a>编辑器配置不当</h1><blockquote>
 <p>有时候源码里面就能不经意间泄露重要(editor)的信息,默认配置害死人</p>
 </blockquote>
-<p>根据提示url<code>/editor/</code>,或是<code>/editor</code>，效果都一样。<br><img src="https://img-blog.csdnimg.cn/603176099312437abea63d0aebe88258.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>随便试试!<br><img src="https://img-blog.csdnimg.cn/0ae3ba73325d40578e5a23c3b53ee303.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_19,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>前面的是编译器的绝对路径，访问后面的/nothinghere/fl000g.txt,即可！</p>
+<p>根据提示url<code>/editor/</code>,或是<code>/editor</code>，效果都一样。<br><img src="https://img-blog.csdnimg.cn/603176099312437abea63d0aebe88258.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>随便试试!<br><img src="https://img-blog.csdnimg.cn/0ae3ba73325d40578e5a23c3b53ee303.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_19,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>前面的是编译器的绝对路径，访问后面的&#x2F;nothinghere&#x2F;fl000g.txt,即可！</p>
 <h1 id="密码逻辑脆弱"><a href="#密码逻辑脆弱" class="headerlink" title="密码逻辑脆弱"></a>密码逻辑脆弱</h1><blockquote>
 <p>公开的信息比如邮箱，可能造成信息泄露，产生严重后果</p>
 </blockquote>
@@ -576,7 +574,7 @@
 </blockquote>
 <p>浏览师傅们的博客可得到这么一句话</p>
 <blockquote>
-<p>早期asp+access架构的数据库文件为db.mdb，直接查看url路径添加加/db/db.mdb下载文件，用记事本打开搜索flag即可。</p>
+<p>早期asp+access架构的数据库文件为db.mdb，直接查看url路径添加加&#x2F;db&#x2F;db.mdb下载文件，用记事本打开搜索flag即可。</p>
 </blockquote>
 <p>从而会得到一个文件，还挺吓人<br><img src="https://img-blog.csdnimg.cn/1795bcf79aeb487489f2142e2f77ba27.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>用记事本打开查找一下<br><img src="https://img-blog.csdnimg.cn/b0f2746b25da46d683f4f6eb093ccbec.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
 

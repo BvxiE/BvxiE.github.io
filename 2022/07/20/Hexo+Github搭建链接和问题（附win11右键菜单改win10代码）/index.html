@@ -475,10 +475,10 @@
 <h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h2><p>不要改变此路径下那些看着有点杂乱的文件（我嫌弃他不整齐建了个文件夹放一起），否则本地文件不能上传到博客。<br><img src="https://img-blog.csdnimg.cn/b932b082ccd8440c8c916a7ef3164ac1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YCfemrmlofnq6BbZGVdQnZ4aUU=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
 <h2 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h2><p><img src="https://img-blog.csdnimg.cn/a0cf4385b86a4e2692b7a7336545a98f.png" alt="在这里插入图片描述"><br>win10，升win11后，右键菜单栏的改变，导致文章上传不方便，(<strong>在知乎的一个评论里找的</strong>)，主要是为了博客上传时的快速。</p>
 <blockquote>
-<p>Win11恢复Win10右键菜单的方法：<br>1.Win+R运行CMD<br>2.输入：reg add HKCU\Software\Classes\CLSID{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32 /f /ve<br>3.重启电脑​</p>
+<p>Win11恢复Win10右键菜单的方法：<br>1.Win+R运行CMD<br>2.输入：reg add HKCU\Software\Classes\CLSID{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32 &#x2F;f &#x2F;ve<br>3.重启电脑​</p>
 </blockquote>
 <blockquote>
-<p>恢复win11右键<br>reg.exe delete “HKCU\Software\Classes\CLSID{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32” /va /f </p>
+<p>恢复win11右键<br>reg.exe delete “HKCU\Software\Classes\CLSID{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32” &#x2F;va &#x2F;f </p>
 </blockquote>
 <h2 id="问题三（端口拒绝）"><a href="#问题三（端口拒绝）" class="headerlink" title="问题三（端口拒绝）"></a>问题三（端口拒绝）</h2><p>  解释一下小标题，就是文章同步不到github上，无论是<code>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</code>，还是<code>输入：hexo generate ，回车；再输入：hexo server 回车，在locahost:4000先预览一下效果；最后输入：hexo deploy 同步到github上。</code>最后一个hexo,都不管用（我也是个菜鸡，如果描述有问题，或是不严谨，麻烦各位大佬改正！）</p>
 <p>  这段时间，不用博客，发现偶尔打不开博客，致命的是它没有办法上传文章，我看过许许多多师傅的文章，解决问题，首先要先发现问题在哪？仅仅把报错CV去上网找答案，会导致出现各种各样类似的问题解决的文章出现，混淆视线。</p>
