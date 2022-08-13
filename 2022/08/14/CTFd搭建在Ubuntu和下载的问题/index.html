@@ -4,11 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="PHP笔记 28 29 30 31, 一个Hexo博客">
+    <meta name="keywords" content="CTFd搭建在Ubuntu和下载的问题, 一个Hexo博客">
     <meta name="description" content="
-理解正则表达式描述一类字符串的特征，通过这个特征与特定的配合使用，对于其他的字符串进行匹配，查找，替换，分割操作！	
-
-了解一些基本概念：这类字符串的特征是由一个或多个1.普通字符（例如a到z）2.元字符（有特殊特殊功能的字符，比如*，+">
+系统环境Ubuntu镜像下安装CTFd平台教程，网上很容易找到，主要讲讲搭建时遇见的几个问题。文章主要还是访问github的问题（有点敏感，怪不得我看的教程基本都是知乎的）。这块的东西个人确实是不大会，如果存在问题，麻烦大家帮忙指出。
+问">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>PHP笔记 28 29 30 31 | 一个Hexo博客</title>
+    <title>CTFd搭建在Ubuntu和下载的问题 | 一个Hexo博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -312,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">PHP笔记 28 29 30 31</h1>
+                    <h1 class="description center-align post-title">CTFd搭建在Ubuntu和下载的问题</h1>
                 </div>
             </div>
         </div>
@@ -433,14 +432,23 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/PHP%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">PHP笔记</span>
+                            <a href="/tags/%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
+                                <span class="chip bg-color">基本配置</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Markdown/" class="post-category">
+                                Markdown
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -449,7 +457,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2022-08-04
+                    2022-08-14
                 </div>
                 
 
@@ -471,26 +479,31 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <hr>
-<h2 id="理解正则表达式"><a href="#理解正则表达式" class="headerlink" title="理解正则表达式"></a>理解正则表达式</h2><p>描述一类字符串的特征，通过这个特征与特定的配合使用，对于其他的字符串进行匹配，查找，替换，分割操作！	</p>
-<blockquote>
-<p>了解一些基本概念：这类字符串的特征是由一个或多个<br>1.普通字符（例如a到z）<br>2.元字符（有特殊特殊功能的字符，比如*，+，？等），组成一个字符串！<br>例如‘&#x2F;a&#x2F;’,a就是普通字符，&#x2F;是定界符（表示正则表达式的开始或结束）</p>
-</blockquote>
-<h2 id="preg-match-all"><a href="#preg-match-all" class="headerlink" title="preg_match_all"></a>preg_match_all</h2><p>按指定的正则表达式，在给定的字符串进行搜索，匹配到符合特征的部分取出</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$pattren</span>=<span class="string">&#x27;/test/&#x27;</span>;</span><br><span class="line"><span class="variable">$str</span>=<span class="string">&#x27;abc&#x27;</span>;</span><br><span class="line">var_dump(preg_match_all(<span class="variable">$pattren</span>,<span class="variable">$str</span>,<span class="variable">$arr</span>));</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>这里是引用我们一般习惯使用正斜线“&#x2F;”作为定界的字符，当然<strong>除了字母，数字，和反斜线（相当于转译，例如 \’ -&gt;’ ）以外的字符</strong>都可以作为定界符比如：#，！，（），| 都是可以的！<br>定界符放在正则表达式的起始位置，前后一致！</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/fe2ff0f4f83e4df3b26b87050a16e421.png" alt="在这里插入图片描述"><br>由图可见，没有符合此特征的！<code>http://localhost//文件名</code>本地开开可进行搜索，比较麻烦。自行配置更方便<br><img src="https://img-blog.csdnimg.cn/a3e4da2c8acd4dbea880cb3264776740.png" alt="在这里插入图片描述"></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$pattren</span>=<span class="string">&#x27;/test/&#x27;</span>;</span><br><span class="line"><span class="variable">$str</span>=<span class="string">&#x27;testabtestctestfgrgtr&#x27;</span>;</span><br><span class="line">var_dump(preg_match_all(<span class="variable">$pattren</span>,<span class="variable">$str</span>,<span class="variable">$arr</span>));</span><br><span class="line">var_dump(<span class="variable">$arr</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/a7ebfdd71cab49bd874f8d84bc9c2fcf.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/e6be4e2ed3084951aed28b461d5ddc74.png" alt="在这里插入图片描述"></p>
-<h1 id="preg-match"><a href="#preg-match" class="headerlink" title="preg_match"></a>preg_match</h1><p>在第一次匹配过程中将会停止搜索<br>参数说明：<br>第一个参数：正则表达式<br>第二个参数：目标字符串<br>第三个参数：放一个变量，执行完成之后，里面会有匹配到的部分以及等等一些数据<br>第四个参数：可以传PREG_OFFSET_CAPTURE<br>具体可见PCPE<br><img src="https://img-blog.csdnimg.cn/dc6d030782f041f6b868a65132328dd4.png" alt="在这里插入图片描述"></p>
-<h2 id="preg-replace"><a href="#preg-replace" class="headerlink" title="preg_replace"></a>preg_replace</h2><p>参考说明：<br>第一个参数：正则表达式<br>第二个参数：要替换成的字符串<br>第三个参数：目标字符串<br>第四个函数（可选）：默认是-1，就是替换所有符合特征部分的<br>第五个参数（可选）：可以放一个变量在这边    </p>
-<h2 id="正则表达式元字符"><a href="#正则表达式元字符" class="headerlink" title="正则表达式元字符"></a>正则表达式元字符</h2><p>详情可见<a target="_blank" rel="noopener" href="https://www.runoob.com/regexp/regexp-metachar.html">https://www.runoob.com/regexp/regexp-metachar.html</a><br><img src="https://img-blog.csdnimg.cn/b1e0efedae294e0f9fdbf6c5332acb7b.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/56bdf8b1674540079ba63044f07aa467.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/c2234a8e50cd421f88acdd8c3bbaab76.png" alt="在这里插入图片描述"></p>
-<h3 id="课程中的配合使用"><a href="#课程中的配合使用" class="headerlink" title="课程中的配合使用"></a>课程中的配合使用</h3><p><img src="https://img-blog.csdnimg.cn/70e394586eb64e5f9c745631ba59f8a2.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/4e9dd1c89b914632bf2f5002ab884fca.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/e5ed2551926a4b9ea201a4f8726c96ec.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/400207b4fd994258a3d1758aa41dc7d8.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/b2d31fdf739644eca68973b1f5101c68.png" alt="在这里插入图片描述"></p>
-<h3 id="对于（）进行理解"><a href="#对于（）进行理解" class="headerlink" title="对于（）进行理解"></a>对于（）进行理解</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$pattren</span>=<span class="string">&#x27;/t(e)s(t)\\1/&#x27;</span>;<span class="comment">//\\1代表第一个圆括号匹配的内容&#x27;/teste/&#x27;</span></span><br><span class="line"><span class="variable">$str</span>=<span class="string">&#x27;testet&#x27;</span>;</span><br><span class="line">var_dump(preg_match_all(<span class="variable">$pattren</span>,<span class="variable">$str</span>,<span class="variable">$arr</span>));</span><br><span class="line">var_dump(<span class="variable">$arr</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/f376ed0d8e8147dfb88eadbeabe68f9e.png" alt="在这里插入图片描述"></p>
-<h2 id="模式修正符"><a href="#模式修正符" class="headerlink" title="模式修正符"></a>模式修正符</h2><p>是正则表达式的定界符后使用的，可以调整正则表达式后的解释，扩展正则表达式在匹配，替换等操作时的某些功能，增强正则表达式的处理能力。<br><img src="https://img-blog.csdnimg.cn/5b72ccaacbd4473ab3c7dfb4362df405.png" alt="在这里插入图片描述"><br>修正符m的使用条件：<br>1.目标字符串必须含\n,在字符串中出现\n就表示新的一行开始<br>2.正则表达式中必须出现^或者$<br><img src="https://img-blog.csdnimg.cn/d7b560024b0a44a98770b91956c7654e.png" alt="在这里插入图片描述"><br>(了解一下！<code>\r：回车符</code>，<code>\n换行符</code>)<br><img src="https://img-blog.csdnimg.cn/2aff859d39e742c8b198ea252db2be3b.png" alt="在这里插入图片描述"><br>针对Linux系统</p>
+<p>系统环境Ubuntu镜像下安装CTFd平台教程，网上很容易找到，主要讲讲搭建时遇见的几个问题。文章主要还是访问github的问题（有点敏感，怪不得我看的教程基本都是知乎的）。<br>这块的东西个人确实是不大会，如果存在问题，麻烦大家帮忙指出。</p>
+<h2 id="问题一：root账号"><a href="#问题一：root账号" class="headerlink" title="问题一：root账号"></a>问题一：root账号</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">安装git：sudo apt install git</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">安装pip：sudo apt install python3-pip</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">安装Flask：sudo pip install Flask或者sudo pip3 install Flask</span><br></pre></td></tr></table></figure>
+<p>其中一个报错，，，，<br><img src="https://img-blog.csdnimg.cn/a08b196ee28843dfa9715eb2d7ed4a53.png" alt="在这里插入图片描述"><br>这是第二个，<br><img src="https://img-blog.csdnimg.cn/69612d1cf7bd47ac9d596516e7424b43.png" alt="在这里插入图片描述"><br>主要原因是由于没有启用root账号，<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44721831/article/details/108893248">Ubuntu获取root权限</a>，亲测有效！<br>root用户默认是没有密码的，因此也就无法使用。所以要先设置密码…再登录<br><img src="https://img-blog.csdnimg.cn/72b47372204d4ec8a17db947d72e9662.png" alt="在这里插入图片描述"><br>好家伙，还挺难设置密码。<code>su root</code>开启即可！</p>
+<h2 id="问题二：网站拒绝连接"><a href="#问题二：网站拒绝连接" class="headerlink" title="问题二：网站拒绝连接"></a>问题二：网站拒绝连接</h2><p>主要在于github网站拒绝连接！（不限于此篇文章，其他做题时，这一问题，个人也遇见多次）贴了很多优秀师傅的博客，主要还是讲问题，步骤可能会少一部分内容。<br><img src="https://img-blog.csdnimg.cn/4f68063291874d33b05ed86a1d66c441.png" alt="在这里插入图片描述"></p>
+<h3 id="法一：在主机中下载好，在传到虚拟机上，"><a href="#法一：在主机中下载好，在传到虚拟机上，" class="headerlink" title="法一：在主机中下载好，在传到虚拟机上，"></a>法一：在主机中下载好，在传到虚拟机上，</h3><p>但是CTFd的源码和部署好的题目都是要通过传输，这样显然是行不通的。</p>
+<h3 id="法二：VMware虚拟机走主机代理"><a href="#法二：VMware虚拟机走主机代理" class="headerlink" title="法二：VMware虚拟机走主机代理"></a>法二：VMware虚拟机走主机代理</h3><p>哎…（试了好几天了，网上教程基本都看过…反正我试了没用）但是有的师傅成功了<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/457288890">https://zhuanlan.zhihu.com/p/457288890</a><br>虚拟机通过NAT方式设置网络可以实现既能和主机通信，值得注意的是<code>ip addr</code><br><img src="https://img-blog.csdnimg.cn/1631511d56ae4a5fa0b6284007be722a.png" alt="在这里插入图片描述"><br>经过尝试…未果，<a target="_blank" rel="noopener" href="http://xgiu.com/vb_vpn">http://xgiu.com/vb_vpn</a>，<br>在这篇文章可以看出！NAT模式是不支持VPN连接，要换成Bridged模式。<br>……<br>这是第二天，请教了一下前辈，主机用小蓝猫的情况下，虚拟机用NAT方式莫得问题，<strong>VMware虚拟机走主机代理上网</strong>，用这个搜索教程，感觉差不多了！！！看教程的时候，我发现居然打不出中文…，迎来了第三个问题！<br><img src="https://img-blog.csdnimg.cn/2d41c057a5504b019e3034645607b83c.png" alt="在这里插入图片描述"></p>
+<h3 id="法三：直接在虚拟机里在下"><a href="#法三：直接在虚拟机里在下" class="headerlink" title="法三：直接在虚拟机里在下"></a>法三：直接在虚拟机里在下</h3><p>嗯…我记得哪个告诉我虚拟机不能安装的！！！就是比较麻烦，每个虚拟机基本都要搞一个！对于Linux整个也不是很了解，就写的详细一点！这里使用了<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/366589407">如何在Linux中使用Clash（前提：在Windows中已经连接成功）——保姆级别教程</a>作为参考，但其有些指令在我这里不能实现，从而自己在写一遍。<br>首先开头的一些配置NAT模式之类的是通过这篇博客进行的<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/371572057">Ubuntu虚拟机网络配置</a>,请移步！</p>
+<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><p>clash网址：<a target="_blank" rel="noopener" href="https://github.com/Dreamacro/clash/releases![%E5%9C%A8%E8%BF%99%E9%87%8C%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%8F%8F%E8%BF%B0](https://img-blog.csdnimg.cn/51eb37059bab461b89aab8d979cf200c.png)">https://github.com/Dreamacro/clash/releases![在这里插入图片描述](https://img-blog.csdnimg.cn/51eb37059bab461b89aab8d979cf200c.png)</a><br>哪块出问题时，可以先检查一下安装有没有问题。<br>…<br>在主系统中直接下好，然后复制粘贴到虚拟机中即可！点击图中提取，进行解压！<br><img src="https://img-blog.csdnimg.cn/ad8a776db1774a1ebf19acd6b6b101f9.png" alt="在这里插入图片描述"><br>打开终端<br><img src="https://img-blog.csdnimg.cn/c958a0b721fe4f8aa5953bebe0518048.png" alt="在这里插入图片描述">我用的命令是<code>chmod +x clash-linux-amd64</code><br><img src="https://img-blog.csdnimg.cn/4546c0b5a0194c03bf48200c8d83ae61.png" alt="在这里插入图片描述"><br>移动到<code>/etc/clash</code>目录<code>mv clash-linux-amd64 /usr/bin/clash</code>,权限不够记得用root<br><img src="https://img-blog.csdnimg.cn/4729ede925c1412cbce85326945f8fa0.png" alt="在这里插入图片描述"><br><strong>配置clash.service服务</strong>，我尝试的是上方博客的内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;[Unit] </span><br><span class="line">Description=clash</span><br><span class="line">After=network-online.target</span><br><span class="line">Wants=network-online.target systemd-networkd-wait-online.service</span><br><span class="line">​</span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line">DynamicUser=true</span><br><span class="line">ExecStart=/usr/bin/clash -d /etc/clash/</span><br><span class="line">Restart=always</span><br><span class="line">LimitNOFILE=512000</span><br><span class="line">​</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">&quot; &gt;&gt; /usr/lib/systemd/system/clash.service</span><br></pre></td></tr></table></figure>
+<h4 id="config-yaml下载不下来（报错空白）"><a href="#config-yaml下载不下来（报错空白）" class="headerlink" title="config.yaml下载不下来（报错空白）"></a>config.yaml下载不下来（报错空白）</h4><p><img src="https://img-blog.csdnimg.cn/ef4a1ab096834539b5b272e40456ebca.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/aa9499421fd447ffb12d42cec0bc64b0.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/55c06ecc5a604cd7a074cf53552caa3b.png" alt="在这里插入图片描述"><br>代理信息文件：config.yaml，数据存储文件：Country.mmdb 这个下载，可以参考这篇博客<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Webkio/archive/2022/07/16/16483761.html">https://www.cnblogs.com/Webkio/archive/2022/07/16/16483761.html</a><br><code>config.yaml</code>：订阅链接后面增加&amp;flag&#x3D;clash，不加应该也行，复制到网页url框（下载后改个名就行），<code>config.yaml</code>内容也可以类比此博客，网上其他模板，让我对于<code>订阅链接</code>的自我理解产生怀疑，从而增大搭建难度！<br><img src="https://img-blog.csdnimg.cn/585e46f956224dc788b4ab4e3d183c70.png" alt="在这里插入图片描述"><br><code>Country.mmdb</code> ：博客有链接，版权问题请移步</p>
+<h5 id="附"><a href="#附" class="headerlink" title="附"></a>附</h5><p><img src="https://img-blog.csdnimg.cn/3f924b820a7848ecb5524a0471831fb1.png" alt="在这里插入图片描述"><br>在一个评论中看到了这个，嗯..，还是我试过，不管用，多一个思路…放在这里。毕竟计算机很玄学，可能只是我不行。</p>
+<h4 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h4><p>将config.yaml文件和 Country.mmdb文件复制到&#x2F;root&#x2F;.config&#x2F;clash&#x2F;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /root/.config/clash/</span><br><span class="line">cp config.yaml /etc/clash/</span><br><span class="line">cp Country.mmdb /etc/clash/</span><br></pre></td></tr></table></figure>
+<p>操作问题<code>cd /root/.config/clash/</code>有的时候给我报不存在，如图<br><img src="https://img-blog.csdnimg.cn/6ac6763d4ec841078c3d0a2041b96674.png" alt="在这里插入图片描述"><br>从而通过报错可以了解到<code>cd /etc/</code>格式用于目录，<code>cd clash</code>格式用于文件夹，<code>sudo vim [文件名]</code>可以打开文件。<br><img src="https://img-blog.csdnimg.cn/49d19c4c1c3e4e2589003f9945b83844.png" alt="在这里插入图片描述"></p>
+<h4 id="通过浏览器访问-http-clash-razord-top"><a href="#通过浏览器访问-http-clash-razord-top" class="headerlink" title="通过浏览器访问 http://clash.razord.top"></a>通过浏览器访问 <a target="_blank" rel="noopener" href="http://clash.razord.top/">http://clash.razord.top</a></h4><p>个人电脑中，无论是不是在虚拟机里火狐都没有办法进行访问，就在虚拟机里有又下了一个浏览器试试！<img src="https://img-blog.csdnimg.cn/608c22433ccc495e858c121f406793e9.png" alt="在这里插入图片描述">由于这个是我最后一步，我直接下的是谷歌，刚好发现我clash配的半天，<code>/usr/bin/clash -d /etc/clash/</code>命令也没有问题（嫌麻烦的可以配置<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/430035973">开机自启</a>），仅仅只是火狐不能用！！！<br><img src="https://img-blog.csdnimg.cn/133295ccc8884397b661a2b82888ebde.png" alt="在这里插入图片描述"></p>
+<h4 id="权限被拒"><a href="#权限被拒" class="headerlink" title="权限被拒"></a>权限被拒</h4><p><img src="https://img-blog.csdnimg.cn/c36f2ca6d55c4c6ba77ab6774fc43ae1.png" alt="在这里插入图片描述"><br>有问题，先百度！<br><img src="https://img-blog.csdnimg.cn/70e882591c424662afb1c1d29becd27e.png" alt="在这里插入图片描述"><br>原来看着像是文件问题，后来发现还是root权限问题<br><img src="https://img-blog.csdnimg.cn/fce65a71213443bf855670fa6d6a9d47.png" alt="在这里插入图片描述"></p>
+<h4 id="浏览器可以科学，命令行不行"><a href="#浏览器可以科学，命令行不行" class="headerlink" title="浏览器可以科学，命令行不行"></a>浏览器可以科学，命令行不行</h4><p><img src="https://img-blog.csdnimg.cn/2e1c34586a7146b38bfdd4ca8dc42bc7.png" alt="在这里插入图片描述"><br>评论区发现了这个，也是我目前的问题，但是由于这篇博客已经花费了我将近一周的时间（由于各种各样的失败和报错），网上大部分的方法和博客我都看得查不多了，还有一些其他的事情，只能先放在这里，过段时间在复现！</p>
+<h3 id="几个常见指令总结一下"><a href="#几个常见指令总结一下" class="headerlink" title="几个常见指令总结一下"></a>几个常见指令总结一下</h3><h4 id="文本内容"><a href="#文本内容" class="headerlink" title="文本内容"></a>文本内容</h4><p>编辑文本内容时，操作命令介绍：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">使用vi进入文本后，按i开始编辑文本 </span><br><span class="line">退出编辑模式  　　</span><br><span class="line">按ESC键，然后： 　　　　</span><br><span class="line">退出vi 　　　</span><br><span class="line">:q!  不保存文件，强制退出vi命令 　　　 </span><br><span class="line">:w   保存文件，不退出vi命令 　　　 </span><br><span class="line">:wq  保存文件，退出vi命令 </span><br><span class="line">删除当前行 删除  dd</span><br></pre></td></tr></table></figure>
+<p>来源：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/430035973">https://zhuanlan.zhihu.com/p/430035973</a></p>
+<h4 id="猫猫的指令"><a href="#猫猫的指令" class="headerlink" title="猫猫的指令"></a>猫猫的指令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">设置开机自启动</span><br><span class="line">systemctl daemon-reload</span><br><span class="line">​</span><br><span class="line">systemctl enable clash</span><br><span class="line">服务操作命令</span><br><span class="line">service clash start ## 启动</span><br><span class="line">service clash stop ## 停止</span><br><span class="line">service clash restart ## 重启</span><br><span class="line">service clash status ## 状态</span><br></pre></td></tr></table></figure>
+<p>来源：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/366589407">https://zhuanlan.zhihu.com/p/366589407</a></p>
+<h2 id="问题三：虚拟机Ubuntu中打不出中文-x2F-切换输入法"><a href="#问题三：虚拟机Ubuntu中打不出中文-x2F-切换输入法" class="headerlink" title="问题三：虚拟机Ubuntu中打不出中文&#x2F;切换输入法"></a>问题三：虚拟机Ubuntu中打不出中文&#x2F;切换输入法</h2><p>和这篇文章对了半天没有问题，<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiaohzd/p/14042220.html##:~:text=%E8%99%9A%E6%8B%9F%E6%9C%BAubuntu%E4%B8%AD%E9%85%8D%E7%BD%AE%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E5%92%8C%E4%B8%AD%E6%96%87%E6%A0%BC%E5%BC%8F%201%E3%80%81%E5%85%88%E5%9C%A8%E8%AF%AD%E8%A8%80%E6%94%AF%E6%8C%81%EF%BC%88language%20and,surport%EF%BC%89%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%B1%89%E8%AF%AD,%20%E8%AF%AD%E8%A8%80%E6%94%AF%E6%8C%81-%3E%E8%AF%AD%E8%A8%80-%3E%E6%B7%BB%E5%8A%A0%E6%88%96%E5%88%A0%E9%99%A4%E8%AF%AD%E8%A8%80-%3E%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E5%90%8E%E9%9D%A2%E6%89%93%E5%8B%BE%202%E3%80%81%E8%AE%BE%E7%BD%AE-%3E%E5%8C%BA%E5%9F%9F%E4%B8%8E%E8%AF%AD%E8%A8%80-%3E%E8%AF%AD%E8%A8%80-%3E%E6%B1%89%E8%AF%AD%EF%BC%8C%E6%A0%BC%E5%BC%8F-%3E%E4%B8%AD%E5%9B%BD%EF%BC%8C%E6%B7%BB%E5%8A%A0-%3E%E4%B8%AD%E6%96%87%EF%BC%88%E6%99%BA%E8%83%BD%E6%8B%BC%E9%9F%B3%EF%BC%89">虚拟机ubuntu中配置中文输入法和中文格式</a>到网上找遍了教程，结果问题出在…这呢！没切换，点击如图：<br><img src="https://img-blog.csdnimg.cn/9c98285388c843c9ae8048314e90608d.png" alt="在这里插入图片描述"><br>就好啦！！！<br><img src="https://img-blog.csdnimg.cn/9ccb72d13a844c6396ac74c74d7b95ff.png" alt="在这里插入图片描述"></p>
 
                 
             </div>
@@ -517,7 +530,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://BvxiE.github.io/2022/08/04/PHP%E7%AC%94%E8%AE%B0%2028%2029%2030%2031/">http://BvxiE.github.io/2022/08/04/PHP%E7%AC%94%E8%AE%B0%2028%2029%2030%2031/</a>
+                    <a href="http://BvxiE.github.io/2022/08/14/CTFd%E6%90%AD%E5%BB%BA%E5%9C%A8Ubuntu%E5%92%8C%E4%B8%8B%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98/">http://BvxiE.github.io/2022/08/14/CTFd%E6%90%AD%E5%BB%BA%E5%9C%A8Ubuntu%E5%92%8C%E4%B8%8B%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -555,8 +568,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/PHP%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">PHP笔记</span>
+                                <a href="/tags/%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
+                                    <span class="chip bg-color">基本配置</span>
                                 </a>
                             
                         </div>
@@ -730,9 +743,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2022/08/14/CTFd%E6%90%AD%E5%BB%BA%E5%9C%A8Ubuntu%E5%92%8C%E4%B8%8B%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
@@ -750,9 +764,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -765,6 +779,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -783,13 +798,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/07/27/%E5%88%86%E6%9E%90%E5%B0%91%E5%B9%B4%E6%B4%BE2%E4%B8%AD%E7%9A%84Crypto/">
+                <a href="/2022/08/04/PHP%E7%AC%94%E8%AE%B0%2028%2029%2030%2031/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="少年派2中的Crypto">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="PHP笔记 28 29 30 31">
                         
-                        <span class="card-title">少年派2中的Crypto</span>
+                        <span class="card-title">PHP笔记 28 29 30 31</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -800,7 +815,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-04
                             </span>
                         <span class="publish-author">
                             
@@ -813,8 +828,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Crypto%E9%A2%98%E8%A7%A3/">
-                        <span class="chip bg-color">Crypto题解</span>
+                    <a href="/tags/PHP%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">PHP笔记</span>
                     </a>
                     
                 </div>
