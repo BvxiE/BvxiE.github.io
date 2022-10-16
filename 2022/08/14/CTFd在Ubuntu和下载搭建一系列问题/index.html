@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Ubuntu和其中github访问, 一个Hexo博客">
+    <meta name="keywords" content="CTFd在Ubuntu和下载搭建一系列问题, 一个Hexo博客">
     <meta name="description" content="
 系统环境Ubuntu镜像下安装CTFd平台教程，网上很容易找到，主要讲讲搭建时遇见的几个问题。这块的东西个人确实是不大会，如果存在问题，麻烦大家帮忙指出。
 问题一：root账号1安装git：sudo apt install git
@@ -20,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Ubuntu和其中github访问 | 一个Hexo博客</title>
+    <title>CTFd在Ubuntu和下载搭建一系列问题 | 一个Hexo博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Ubuntu和其中github访问</h1>
+                    <h1 class="description center-align post-title">CTFd在Ubuntu和下载搭建一系列问题</h1>
                 </div>
             </div>
         </div>
@@ -489,7 +489,7 @@
 <h3 id="法一：在主机中下载好，在传到虚拟机上，"><a href="#法一：在主机中下载好，在传到虚拟机上，" class="headerlink" title="法一：在主机中下载好，在传到虚拟机上，"></a>法一：在主机中下载好，在传到虚拟机上，</h3><p>但是CTFd的源码和部署好的题目都是要通过传输，这样显然是行不通的。</p>
 <h3 id="法二：VMware虚拟机走主机代理"><a href="#法二：VMware虚拟机走主机代理" class="headerlink" title="法二：VMware虚拟机走主机代理"></a>法二：VMware虚拟机走主机代理</h3><p>哎…（试了好几天了，网上教程基本都看过…反正我试了没用）但是有的师傅成功了<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/457288890">https://zhuanlan.zhihu.com/p/457288890</a><br>虚拟机通过NAT方式设置网络可以实现既能和主机通信，值得注意的是<code>ip addr</code><br><img src="https://img-blog.csdnimg.cn/1631511d56ae4a5fa0b6284007be722a.png" alt="在这里插入图片描述"><br>经过尝试…未果，<a target="_blank" rel="noopener" href="http://xgiu.com/vb_vpn">http://xgiu.com/vb_vpn</a>，<br>在这篇文章可以看出！NAT模式是不支持VPN连接，要换成Bridged模式。<br>……<br>这是第二天，请教了一下前辈，主机用小蓝猫的情况下，虚拟机用NAT方式莫得问题，<strong>VMware虚拟机走主机代理上网</strong>，用这个搜索教程，感觉差不多了！！！看教程的时候，我发现居然打不出中文…，迎来了第三个问题！<br><img src="https://img-blog.csdnimg.cn/2d41c057a5504b019e3034645607b83c.png" alt="在这里插入图片描述"></p>
 <h3 id="法三：直接在虚拟机里在下"><a href="#法三：直接在虚拟机里在下" class="headerlink" title="法三：直接在虚拟机里在下"></a>法三：直接在虚拟机里在下</h3><p>嗯…我记得哪个告诉我虚拟机不能安装的！！！就是比较麻烦，每个虚拟机基本都要搞一个！对于Linux整个也不是很了解，就写的详细一点！这里使用了<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/366589407">如何在Linux中使用Clash（前提：在Windows中已经连接成功）——保姆级别教程</a>作为参考，但其有些指令在我这里不能实现，从而自己在写一遍。<br>首先开头的一些配置NAT模式之类的是通过这篇博客进行的<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/371572057">Ubuntu虚拟机网络配置</a>,请移步！</p>
-<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><p>clash网址：<a target="_blank" rel="noopener" href="https://github.com/Dreamacro/clash/releases![%E5%9C%A8%E8%BF%99%E9%87%8C%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%8F%8F%E8%BF%B0](https://img-blog.csdnimg.cn/51eb37059bab461b89aab8d979cf200c.png)">https://github.com/Dreamacro/clash/releases![在这里插入图片描述](https://img-blog.csdnimg.cn/51eb37059bab461b89aab8d979cf200c.png)</a><br>哪块出问题时，可以先检查一下安装有没有问题。<br>…<br>在主系统中直接下好，然后复制粘贴到虚拟机中即可！点击图中提取，进行解压！<br><img src="https://img-blog.csdnimg.cn/ad8a776db1774a1ebf19acd6b6b101f9.png" alt="在这里插入图片描述"><br>打开终端<br><img src="https://img-blog.csdnimg.cn/c958a0b721fe4f8aa5953bebe0518048.png" alt="在这里插入图片描述">我用的命令是<code>chmod +x clash-linux-amd64</code><br><img src="https://img-blog.csdnimg.cn/4546c0b5a0194c03bf48200c8d83ae61.png" alt="在这里插入图片描述"><br>移动到<code>/etc/clash</code>目录<code>mv clash-linux-amd64 /usr/bin/clash</code>,权限不够记得用root<br><img src="https://img-blog.csdnimg.cn/4729ede925c1412cbce85326945f8fa0.png" alt="在这里插入图片描述"><br><strong>配置clash.service服务</strong>，我尝试的是上方博客的内容。</p>
+<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><p>clash网址：<a target="_blank" rel="noopener" href="https://github.com/Dreamacro/clash/releases">https://github.com/Dreamacro/clash/releases</a><br><img src="https://img-blog.csdnimg.cn/51eb37059bab461b89aab8d979cf200c.png" alt="在这里插入图片描述"><br>哪块出问题时，可以先检查一下安装有没有问题。<br>…<br>在主系统中直接下好，然后复制粘贴到虚拟机中即可！点击图中提取，进行解压！<br><img src="https://img-blog.csdnimg.cn/ad8a776db1774a1ebf19acd6b6b101f9.png" alt="在这里插入图片描述"><br>打开终端<br><img src="https://img-blog.csdnimg.cn/c958a0b721fe4f8aa5953bebe0518048.png" alt="在这里插入图片描述">我用的命令是<code>chmod +x clash-linux-amd64</code><br><img src="https://img-blog.csdnimg.cn/4546c0b5a0194c03bf48200c8d83ae61.png" alt="在这里插入图片描述"><br>移动到<code>/etc/clash</code>目录<code>mv clash-linux-amd64 /usr/bin/clash</code>,权限不够记得用root<br><img src="https://img-blog.csdnimg.cn/4729ede925c1412cbce85326945f8fa0.png" alt="在这里插入图片描述"><br><strong>配置clash.service服务</strong>，我尝试的是上方博客的内容。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;[Unit] </span><br><span class="line">Description=clash</span><br><span class="line">After=network-online.target</span><br><span class="line">Wants=network-online.target systemd-networkd-wait-online.service</span><br><span class="line">​</span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line">DynamicUser=true</span><br><span class="line">ExecStart=/usr/bin/clash -d /etc/clash/</span><br><span class="line">Restart=always</span><br><span class="line">LimitNOFILE=512000</span><br><span class="line">​</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">&quot; &gt;&gt; /usr/lib/systemd/system/clash.service</span><br></pre></td></tr></table></figure>
 <h4 id="config-yaml下载不下来（报错空白）"><a href="#config-yaml下载不下来（报错空白）" class="headerlink" title="config.yaml下载不下来（报错空白）"></a>config.yaml下载不下来（报错空白）</h4><p><img src="https://img-blog.csdnimg.cn/ef4a1ab096834539b5b272e40456ebca.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/aa9499421fd447ffb12d42cec0bc64b0.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/55c06ecc5a604cd7a074cf53552caa3b.png" alt="在这里插入图片描述"><br>代理信息文件：config.yaml，数据存储文件：Country.mmdb 这个下载，可以参考这篇博客<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Webkio/archive/2022/07/16/16483761.html">https://www.cnblogs.com/Webkio/archive/2022/07/16/16483761.html</a><br><code>config.yaml</code>：订阅链接后面增加&amp;flag&#x3D;clash，不加应该也行，复制到网页url框（下载后改个名就行），<code>config.yaml</code>内容也可以类比此博客，网上其他模板，让我对于<code>订阅链接</code>的自我理解产生怀疑，从而增大搭建难度！<br><img src="https://img-blog.csdnimg.cn/585e46f956224dc788b4ab4e3d183c70.png" alt="在这里插入图片描述"><br><code>Country.mmdb</code> ：博客有链接，版权问题请移步</p>
 <h5 id="附"><a href="#附" class="headerlink" title="附"></a>附</h5><p><img src="https://img-blog.csdnimg.cn/3f924b820a7848ecb5524a0471831fb1.png" alt="在这里插入图片描述"><br>在一个评论中看到了这个，嗯..，还是我试过，不管用，多一个思路…放在这里。毕竟计算机很玄学，可能只是我不行。</p>
@@ -766,9 +766,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Ubuntu和其中github访问">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="CTFd在Ubuntu和下载搭建一系列问题">
                         
-                        <span class="card-title">Ubuntu和其中github访问</span>
+                        <span class="card-title">CTFd在Ubuntu和下载搭建一系列问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
