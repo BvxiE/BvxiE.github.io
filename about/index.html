@@ -806,20 +806,14 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/Web%E9%A2%98%E8%A7%A3/">
-                <span class="chip center-align waves-effect waves-light chip-default">Web题解</span>
-            </a>
-            
-            
-            
             <a href="/tags/%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
                 <span class="chip center-align waves-effect waves-light chip-default">基本配置</span>
             </a>
             
             
             
-            <a href="/tags/%E6%AF%94%E8%B5%9B%E5%9B%9E%E9%A1%BE/">
-                <span class="chip center-align waves-effect waves-light chip-default">比赛回顾</span>
+            <a href="/tags/Web%E9%A2%98%E8%A7%A3/">
+                <span class="chip center-align waves-effect waves-light chip-default">Web题解</span>
             </a>
             
             
@@ -832,6 +826,12 @@
             
             <a href="/tags/PHP%E7%AC%94%E8%AE%B0/">
                 <span class="chip center-align waves-effect waves-light chip-default">PHP笔记</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%AF%94%E8%B5%9B%E5%9B%9E%E9%A1%BE/">
+                <span class="chip center-align waves-effect waves-light chip-default">比赛回顾</span>
             </a>
             
             
@@ -1161,6 +1161,14 @@ $(function () {
     
 
     <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
     
 
     <!-- 鼠标星星特效 -->
@@ -1190,8 +1198,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
