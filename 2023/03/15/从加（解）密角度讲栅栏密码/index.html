@@ -470,18 +470,18 @@
             <div id="articleContent">
                 <hr>
 <p>这今天在做新生赛的一道“<strong>只有倒着翻过十八层的篱笆才能抵达北欧神话的终点</strong>”，研究了很长时间的栅栏原理，flag没出来，而且自己对于普通和W型的加密解密整的有的蒙…<br>原先一篇文章里题了一点但是并没有加以区分<strong>加密</strong>和<strong>解密</strong>，有很多问题，这次专门通过<code>0223e_priibly__honwa_jmgh_fgkcqaoqtmfr</code>来梳理一下加（解）密角度的两个类型的栅栏。</p>
-<h1 id="普通型栅栏"><a href="#普通型栅栏" class="headerlink" title="普通型栅栏"></a>普通型栅栏</h1><p><img src="https://img-blog.csdnimg.cn/030f293dfeb145fa90923426e3f88c5e.png" alt="在这里插入图片描述"></p>
-<h2 id="加密原理"><a href="#加密原理" class="headerlink" title="加密原理"></a>加密原理</h2><p>把将要传递的信息中的字母交替排成n行<br><img src="https://img-blog.csdnimg.cn/f2a97afc629540f4965debd8a6dc32fe.png" alt="在这里插入图片描述"></p>
+<h2 id="普通型栅栏"><a href="#普通型栅栏" class="headerlink" title="普通型栅栏"></a>普通型栅栏</h2><p><img src="https://img-blog.csdnimg.cn/030f293dfeb145fa90923426e3f88c5e.png" alt="在这里插入图片描述"></p>
+<h3 id="加密原理"><a href="#加密原理" class="headerlink" title="加密原理"></a>加密原理</h3><p>把将要传递的信息中的字母交替排成n行<br><img src="https://img-blog.csdnimg.cn/f2a97afc629540f4965debd8a6dc32fe.png" alt="在这里插入图片描述"></p>
 <p>再将下面一行字母排在上面一行的后边，从而形成一段密码<br><img src="https://img-blog.csdnimg.cn/6b8b4521cb91438bae40d4ce6874e256.png" alt="在这里插入图片描述"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">密文：0223e_priibly__honwa_jmgh_fgkcqaoqtmfr</span><br></pre></td></tr></table></figure>
 
-<h2 id="解密原理"><a href="#解密原理" class="headerlink" title="解密原理"></a>解密原理</h2><p>先将密文分为n行<br><img src="https://img-blog.csdnimg.cn/d65f8d126d3a4159b909cf54d59684ce.png" alt="在这里插入图片描述"><br>再按上下上下的顺序组合成一句话<br><img src="https://img-blog.csdnimg.cn/f6a15b8718cb464b8dc523b2906b196b.png" alt="在这里插入图片描述"></p>
+<h3 id="解密原理"><a href="#解密原理" class="headerlink" title="解密原理"></a>解密原理</h3><p>先将密文分为n行<br><img src="https://img-blog.csdnimg.cn/d65f8d126d3a4159b909cf54d59684ce.png" alt="在这里插入图片描述"><br>再按上下上下的顺序组合成一句话<br><img src="https://img-blog.csdnimg.cn/f6a15b8718cb464b8dc523b2906b196b.png" alt="在这里插入图片描述"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">明文：03piby_ow_mhfkqotf2eril_hnajg_gcaqmr2_</span><br></pre></td></tr></table></figure>
-<h1 id="W型栅栏"><a href="#W型栅栏" class="headerlink" title="W型栅栏"></a>W型栅栏</h1><p><img src="https://img-blog.csdnimg.cn/eb7cbacb3a9844009c60f901c462171f.png" alt="在这里插入图片描述"></p>
-<h2 id="加密原理-1"><a href="#加密原理-1" class="headerlink" title="加密原理"></a><a target="_blank" rel="noopener" href="http://www.atoolbox.net/Tool.php?Id=777">加密原理</a></h2><p>加密的明文分成N个一组，然后把每组的第1个字符组合，每组第2个字符组合…每组的第N(最后一个分组可能不足N个)个字符组合，最后把他们全部连接起来就是密文。</p>
+<h2 id="W型栅栏"><a href="#W型栅栏" class="headerlink" title="W型栅栏"></a>W型栅栏</h2><p><img src="https://img-blog.csdnimg.cn/eb7cbacb3a9844009c60f901c462171f.png" alt="在这里插入图片描述"></p>
+<h3 id="加密原理-1"><a href="#加密原理-1" class="headerlink" title="加密原理"></a><a target="_blank" rel="noopener" href="http://www.atoolbox.net/Tool.php?Id=777">加密原理</a></h3><p>加密的明文分成N个一组，然后把每组的第1个字符组合，每组第2个字符组合…每组的第N(最后一个分组可能不足N个)个字符组合，最后把他们全部连接起来就是密文。</p>
 <h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>明文由上至下顺序写上，当到达最低部时，再回头向上，一直重复直至整篇明文写完为止<br><img src="https://img-blog.csdnimg.cn/b2713c5da63341df996fe90c85bb7a1b.png" alt="在这里插入图片描述"><br>按每组的第1个字符组合，每组第2个字符组合<br><img src="https://img-blog.csdnimg.cn/62883a9b6a354d15b497342ad20cf902.png" alt="在这里插入图片描述"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">密文：0223e_priibly__honwa_jmgh_fgkcqaoqtmfr</span><br></pre></td></tr></table></figure>
-<h2 id="解密原理-1"><a href="#解密原理-1" class="headerlink" title="解密原理"></a>解密原理</h2><p>这个应该，脚本比较好用</p>
+<h3 id="解密原理-1"><a href="#解密原理-1" class="headerlink" title="解密原理"></a>解密原理</h3><p>这个应该，脚本比较好用</p>
 <blockquote>
 <p>ps:flag最后落在北欧神话上，少了一部分，难怪解不出来。</p>
 </blockquote>
